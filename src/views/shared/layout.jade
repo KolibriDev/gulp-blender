@@ -1,0 +1,20 @@
+doctype html
+//[if lt IE 9]><html class="no-js lt-ie10 lt-ie9"><![endif]
+//[if IE 9]>   <html class="no-js lt-ie10 ie9"><![endif]
+//[if gt IE 9]><!
+html(class="no-js")
+  //<![endif]
+  include _head
+
+  body
+    header
+      block header
+
+    main
+      block content
+
+    footer
+      block footer
+
+    block javascript
+      script(src='http://localhost:35729/livereload.js')
