@@ -1,39 +1,46 @@
 {
   "name": "form5-gulp-blender",
-  "version": "0.0.1",
-  "description": "",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:Form5/gulp-blender.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Form5/gulp-blender/issues"
-  },
+  "description": "Our gulp seed front-end development workflow",
+  "version": "0.1.0",
   "author": {
     "name": "Form5",
     "email": "hello@form5.is",
     "url": "http://www.form5.is"
   },
+  "bugs": {
+    "url": "https://github.com/Form5/gulp-blender/issues"
+  },
   "contributors": [
     "Benedikt D Valdez <benedikt@form5.is>",
     "Arni Reynir Oskarsson <arni@form5.is>"
   ],
-  "license": "MIT",
   "devDependencies": {
-    "gulp-concat": "~2.1.7",
-    "gulp-util": "~2.2.14",
     "gulp": "~3.5.2",
-    "gulp-uglify": "~0.2.0",
+    "gulp-clean": "~0.2.4",
+    "gulp-connect": "~0.3.1",
     "gulp-csso": "~0.2.3",
-    "gulp-sass": "~0.6.0",
     "gulp-jade": "~0.4.1",
-    "gulp-livereload": "~1.0.1",
-    "tiny-lr": "0.0.5",
-    "express": "~3.4.8",
-    "gulp-clean": "~0.2.4"
+    "gulp-load-plugins": "~0.3.0",
+    "gulp-sass": "~0.6.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-util": "~2.2.14",
+    "tiny-lr": "0.0.5"
+  },
+  "homepage": "https://github.com/Form5/gulp-blender",
+  "keywords": [
+    "form5",
+    "gulp",
+    "blender",
+    "front-end",
+    "seed"
+  ],
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Form5/gulp-blender.git"
+  },
+  "scripts": {
+    "start": "gulp"
   }
 }
