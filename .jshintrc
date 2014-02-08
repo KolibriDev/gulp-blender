@@ -16,7 +16,7 @@
     "$scope",
     "$scope"
   ],
-  "node" : false,
+  "node" : true,
   "jquery" : true,
   "browser" : true,
   "boss" : true,
