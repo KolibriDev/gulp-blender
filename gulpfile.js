@@ -26,7 +26,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src('src/js/*.js')
+  return gulp.src('src/js/**/*.js')
     .pipe( plugins.uglify() )
     .pipe( gulp.dest('dev/js/') )
     .pipe( plugins.connect.reload() );
@@ -42,9 +42,9 @@ gulp.task('templates', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('src/scss/*.scss',['css']);
-  gulp.watch('src/js/*.js',['js']);
-  gulp.watch('src/views/*.jade',['templates']);
+  gulp.watch('src/scss/**/*.scss',['css']);
+  gulp.watch('src/js/**/*.js',['js']);
+  gulp.watch('src/views/**/*.jade',['templates']);
 });
 
 // Clean entire dev folder
