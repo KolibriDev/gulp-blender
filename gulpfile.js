@@ -41,18 +41,29 @@ gulp.task('templates', function() {
     .pipe( plugins.connect.reload() );
 });
 
-// TODO: Find a way to implement clean back into 'default' task;
-//       throwing errors like crazy atm!
-gulp.task('clean', function() {
-  gulp.src(['dev'], {read: false})
-    .pipe( plugins.clean() );
-});
-
 gulp.task('watch', function () {
   gulp.watch('src/scss/*.scss',['css']);
   gulp.watch('src/js/*.js',['js']);
   gulp.watch('src/views/*.jade',['templates']);
 });
 
+// Clean entire dev folder
+gulp.task('clean-dev', function() {
+  return gulp.src('dev/*', {read: false})
+    .pipe( plugins.clean() );
+});
+
+// Build all dev files, run only after 'clean-dev' has executed successfully
+gulp.task('build-dev', ['clean-dev'], function(){
+  gulp.start('js', 'css', 'templates');
+});
+
 // Default Task
-gulp.task('default', ['js', 'css', 'templates', 'connect', 'watch']);
+gulp.task('default', function(){
+  gulp.start('build-dev');
+});
+
+// Start server, run only after 'default' has executed successfully
+gulp.task('server', ['default'], function(){
+  gulp.start('connect', 'watch');
+});

@@ -2,5 +2,6 @@
 .DS_Store
 node_modules
 npm-debug.log
-dev
+dev/*
+!dev/.gitkeep
 *.sublime-workspace
