@@ -21,8 +21,7 @@ module.exports = {
         .pipe(jade({
           pretty: false
         }))
-        .pipe(gulp.dest('dist/'))
-        .pipe( connect.reload() );
+        .pipe(gulp.dest('dist/'));
     }
   },
   // Run all templates tasks
