@@ -1,11 +1,11 @@
 var gulp    = require('gulp'),
-    cache   = require('gulp-cached'),
-    jade    = require('gulp-jade'),
-    connect = require('gulp-connect');
+    jade    = require('gulp-jade');
 
 module.exports = {
   'templates-dev': {
     callback: function() {
+      var cache   = require('gulp-cached'),
+          connect = require('gulp-connect');
       return gulp.src('src/views/*.jade')
         .pipe( cache('templates-dev') )
         .pipe(jade({

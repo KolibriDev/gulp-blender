@@ -1,12 +1,11 @@
 var gulp    = require('gulp'),
-    cache   = require('gulp-cached'),
-    sass    = require('gulp-sass'),
-    csso    = require('gulp-csso'),
-    connect = require('gulp-connect');
+    sass    = require('gulp-sass');
 
 module.exports = {
   'styles-dev': {
     callback: function() {
+      var cache   = require('gulp-cached'),
+          connect = require('gulp-connect');
       return gulp.src('src/scss/*.scss')
         .pipe( cache('styles-dev') )
         .pipe(
@@ -21,6 +20,7 @@ module.exports = {
   },
   'styles-dist': {
     callback: function() {
+      var csso = require('gulp-csso');
       return gulp.src('src/scss/*.scss')
         .pipe(
           sass({
