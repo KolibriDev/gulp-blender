@@ -4,7 +4,7 @@ module.exports = {
   'build-dev': {
     deps: ['clean-dev'],
     callback: function() {
-      return gulp.start('scripts', 'styles', 'templates');
+      return gulp.start('scripts', 'styles', 'templates', 'images', 'vectors');
     }
   }
 };
