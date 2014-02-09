@@ -6,20 +6,10 @@ var gulp    = require('gulp'),
     connect = require('gulp-connect');
 
 module.exports = {
-  'scripts': {
-    deps: ['script-lint'],
-    callback: function() {
-      return gulp.src('src/js/**/*.js')
-        .pipe( cache('scripts') )
-        .pipe( uglify() )
-        .pipe( gulp.dest('dev/js/') )
-        .pipe( connect.reload() );
-    }
-  },
-  'script-lint': {
+  'scripts-lint': {
     callback: function() {
       return gulp.src('src/js/**/*.js')
-        .pipe( cache('script-lint') )
+        .pipe( cache('scripts-lint') )
         .pipe( jshint('./.jshintrc') )
         .pipe( jshint.reporter('default') )
         // TODO: Figure out a way to stop this task on jshint failure,
@@ -30,5 +20,26 @@ module.exports = {
         // }))
         ;
     }
+  },
+  'scripts-dev': {
+    deps: ['scripts-lint'],
+    callback: function() {
+      return gulp.src('src/js/**/*.js')
+        .pipe( cache('scripts-dev') )
+        .pipe( gulp.dest('dev/js/') )
+        .pipe( connect.reload() );
+    }
+  },
+  'scripts-dist': {
+    deps: ['scripts-lint'],
+    callback: function() {
+      return gulp.src('src/js/**/*.js')
+        .pipe( uglify() )
+        .pipe( gulp.dest('dist/js/') );
+    }
+  },
+  // Run all scripts tasks
+  'scripts': {
+    deps: ['scripts-dev', 'scripts-dist']
   }
 };

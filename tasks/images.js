@@ -1,23 +1,24 @@
 var gulp = require('gulp'),
     cache   = require('gulp-cached'),
-    imagemin = require('gulp-imagemin'),
-    svgmin = require('gulp-svgmin');
+    imagemin = require('gulp-imagemin');
 
 module.exports = {
-  'images': {
+  'images-dev': {
     callback: function() {
       return gulp.src('src/img/**/*.{png,gif,jpg,jpeg}')
-        .pipe( cache('images') )
-        .pipe( imagemin() )
+        .pipe( cache('images-dev') )
         .pipe( gulp.dest('dev/') );
     }
   },
-  'vectors': {
+  'images-dist': {
     callback: function() {
-      return gulp.src('src/img/**/*.svg')
-        .pipe( cache('vectors') )
-        .pipe( svgmin() )
-        .pipe( gulp.dest('dev/img/') );
+      return gulp.src('src/img/**/*.{png,gif,jpg,jpeg}')
+        .pipe( imagemin() )
+        .pipe( gulp.dest('dist/') );
     }
+  },
+  // Run all images tasks
+  'images': {
+    deps: ['images-dev', 'images-dist']
   }
 };
