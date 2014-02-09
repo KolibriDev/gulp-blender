@@ -4,21 +4,21 @@ var gulp    = require('gulp'),
 module.exports = {
   'bump-patch': {
     callback: function() {
-      gulp.src(['README.md'])
+      gulp.src('./*.json')
         .pipe(bump({type:'patch'}))
         .pipe(gulp.dest('./'));
     }
   },
   'bump-minor': {
     callback: function() {
-      gulp.src(['README.md'])
+      gulp.src('./*.json')
         .pipe(bump({type:'minor'}))
         .pipe(gulp.dest('./'));
     }
   },
   'bump-major': {
     callback: function() {
-      gulp.src(['README.md'])
+      gulp.src('./*.json')
         .pipe(bump({type:'major'}))
         .pipe(gulp.dest('./'));
     }
