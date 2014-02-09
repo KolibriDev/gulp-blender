@@ -1,7 +1,7 @@
 {
   "name": "form5-gulp-blender",
   "description": "Our gulp seed front-end development workflow",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": {
     "name": "Form5",
     "email": "hello@form5.is",
@@ -15,7 +15,9 @@
     "Arni Reynir Oskarsson <arni@form5.is>"
   ],
   "devDependencies": {
+    "glob": "~3.2.8",
     "gulp": "~3.5.2",
+    "gulp-bump": "~0.1.4",
     "gulp-clean": "~0.2.4",
     "gulp-connect": "~0.3.1",
     "gulp-csso": "~0.2.3",
@@ -24,7 +26,8 @@
     "gulp-sass": "~0.6.0",
     "gulp-uglify": "~0.2.1",
     "gulp-util": "~2.2.14",
-    "tiny-lr": "0.0.5"
+    "tiny-lr": "0.0.5",
+    "underscore": "~1.5.2"
   },
   "homepage": "https://github.com/Form5/gulp-blender",
   "keywords": [
