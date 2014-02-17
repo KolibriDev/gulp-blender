@@ -1,5 +1,6 @@
 var gulp    = require('gulp'),
-    sass    = require('gulp-sass');
+    sass    = require('gulp-sass'),
+    prefix  = require('gulp-autoprefixer');
 
 module.exports = {
   'styles-dev': {
@@ -14,6 +15,7 @@ module.exports = {
           errLogToConsole: true
         })
         )
+        .pipe( prefix('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1') )
         .pipe( gulp.dest('dev/css/') )
         .pipe( connect.reload() );
     }
@@ -28,6 +30,7 @@ module.exports = {
           errLogToConsole: true
         })
         )
+        .pipe( prefix('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1') )
         .pipe( csso() )
         .pipe( gulp.dest('dist/css/') );
     }
