@@ -1,7 +1,7 @@
 {
   "name": "form5-gulp-blender",
   "description": "Our gulp seed front-end development workflow",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "author": {
     "name": "Form5",
     "email": "hello@form5.is",
@@ -15,25 +15,24 @@
     "Arni Reynir Oskarsson <arni@form5.is>"
   ],
   "devDependencies": {
-    "glob": "~3.2.8",
     "gulp": "~3.5.2",
     "gulp-autoprefixer": "0.0.6",
-    "gulp-bump": "~0.1.4",
+    "gulp-bump": "~0.1.5",
     "gulp-cached": "0.0.1",
     "gulp-clean": "~0.2.4",
     "gulp-connect": "~0.4.0",
-    "gulp-csso": "~0.2.3",
+    "gulp-csso": "~0.2.4",
     "gulp-imagemin": "~0.1.5",
-    "gulp-jade": "~0.4.1",
-    "gulp-jshint": "~1.4.0",
+    "gulp-jade": "~0.4.2",
+    "gulp-jshint": "~1.4.2",
+    "gulp-load": "~0.1.1",
     "gulp-load-plugins": "~0.3.0",
-    "gulp-notify": "~0.6.2",
-    "gulp-ruby-sass": "~0.3.0",
-    "gulp-svgmin": "~0.4.1",
+    "gulp-notify": "~1.0.0-beta",
+    "gulp-ruby-sass": "~0.3.1",
+    "gulp-svgmin": "~0.4.3",
     "gulp-uglify": "~0.2.1",
     "gulp-util": "~2.2.14",
-    "tiny-lr": "0.0.5",
-    "underscore": "~1.6.0"
+    "tiny-lr": "0.0.5"
   },
   "homepage": "https://github.com/Form5/gulp-blender",
   "keywords": [
@@ -50,6 +49,6 @@
     "url": "git@github.com:Form5/gulp-blender.git"
   },
   "scripts": {
-    "start": "gulp server"
+    "test": ""
   }
 }

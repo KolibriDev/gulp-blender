@@ -1,21 +1,17 @@
-var gulp    = require('gulp'),
-    clean   = require('gulp-clean');
 
-module.exports = {
-  'clean-dev': {
-    callback: function() {
-      return gulp.src('dev/*', {read: false})
-        .pipe( clean() );
-    }
-  },
-  'clean-dist': {
-    callback: function() {
-      return gulp.src('dist/*', {read: false})
-        .pipe( clean() );
-    }
-  },
+module.exports = function(gulp) {
+
+  gulp.task('clean-dev', function() {
+    return gulp.src('dev/*', {read: false})
+      .pipe( gulp.plugin.clean() );
+  });
+
+  gulp.task('clean-dist', function() {
+    return gulp.src('dist/*', {read: false})
+      .pipe( gulp.plugin.clean() );
+  });
+
   // Run all clean tasks
-  'clean': {
-    deps: ['clean-dev', 'clean-dist']
-  }
+  gulp.task('clean', ['clean-dev', 'clean-dist']);
+
 };

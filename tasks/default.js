@@ -1,6 +1,6 @@
 
-module.exports = {
-  'default': {
-    deps: ['build']
-  }
+module.exports = function(gulp) {
+
+  gulp.task('default', ['build']);
+
 };

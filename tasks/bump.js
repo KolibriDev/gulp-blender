@@ -1,28 +1,24 @@
-var gulp    = require('gulp'),
-    bump    = require('gulp-bump');
 
-module.exports = {
-  'bump-patch': {
-    callback: function() {
-      gulp.src('./*.json')
-        .pipe(bump({type:'patch'}))
-        .pipe(gulp.dest('./'));
-    }
-  },
-  'bump-minor': {
-    callback: function() {
-      gulp.src('./*.json')
-        .pipe(bump({type:'minor'}))
-        .pipe(gulp.dest('./'));
-    }
-  },
-  'bump-major': {
-    callback: function() {
-      gulp.src('./*.json')
-        .pipe(bump({type:'major'}))
-        .pipe(gulp.dest('./'));
-    }
-  },
-  // Shorthand for bump-patch
-  'bump': { deps: ['bump-patch'] }
+module.exports = function(gulp) {
+
+  gulp.task('bump-patch', function() {
+    gulp.src('./*.json')
+      .pipe(gulp.plugin.bump({type:'patch'}))
+      .pipe(gulp.dest('./'));
+  });
+
+  gulp.task('bump-minor', function() {
+    gulp.src('./*.json')
+      .pipe(gulp.plugin.bump({type:'minor'}))
+      .pipe(gulp.dest('./'));
+  });
+
+  gulp.task('bump-major', function() {
+    gulp.src('./*.json')
+      .pipe(gulp.plugin.bump({type:'major'}))
+      .pipe(gulp.dest('./'));
+  });
+
+  gulp.task('bump', ['bump-patch']);
+
 };

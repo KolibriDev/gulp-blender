@@ -1,10 +1,8 @@
-var gulp = require('gulp');
 
-module.exports = {
-  'server': {
-    deps: ['default'],
-    callback: function() {
-      return gulp.start('connect', 'watch');
-    }
-  }
+module.exports = function(gulp) {
+
+  gulp.task('server', ['default'], function() {
+    return gulp.start('connect', 'watch');
+  });
+
 };

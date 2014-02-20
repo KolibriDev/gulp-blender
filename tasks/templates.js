@@ -1,31 +1,21 @@
-var gulp    = require('gulp'),
-    jade    = require('gulp-jade');
 
-module.exports = {
-  'templates-dev': {
-    callback: function() {
-      var cache   = require('gulp-cached'),
-          connect = require('gulp-connect');
-      return gulp.src('src/views/*.jade')
-        .pipe( cache('templates-dev') )
-        .pipe(jade({
-          pretty: true
-        }))
-        .pipe(gulp.dest('dev/'))
-        .pipe( connect.reload() );
-    }
-  },
-  'templates-dist': {
-    callback: function() {
-      return gulp.src('src/views/*.jade')
-        .pipe(jade({
-          pretty: false
-        }))
-        .pipe(gulp.dest('dist/'));
-    }
-  },
+module.exports = function(gulp) {
+
+  gulp.task('templates-dev', function() {
+    return gulp.src('src/views/*.jade')
+      .pipe( gulp.plugin.cached('templates-dev') )
+      .pipe( gulp.plugin.jade({pretty: true}) )
+      .pipe( gulp.dest('dev/') )
+      .pipe( gulp.plugin.connect.reload() );
+  });
+
+  gulp.task('templates-dist', function() {
+    return gulp.src('src/views/*.jade')
+      .pipe( gulp.plugin.jade({pretty: false}) )
+      .pipe( gulp.dest('dist/') );
+  });
+
   // Run all templates tasks
-  'templates': {
-    deps: ['templates-dev', 'templates-dist']
-  }
+  gulp.task('templates', ['templates-dev', 'templates-dist']);
+
 };

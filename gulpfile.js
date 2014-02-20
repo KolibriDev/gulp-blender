@@ -1,13 +1,8 @@
 
-var gulp = require('gulp'),
-    glob = require('glob'),
-    _    = require('underscore');
+var gulp = require('gulp');
 
-// Load and assign all tasks from ./tasks/ folder
-glob.sync('*', {cwd: './tasks/'}).forEach(function(option) {
-  var tasks = require('./tasks/' + option);
-  if (!tasks) return;
-  _.each(tasks, function(item,name){
-    gulp.task(name, item.deps, item.callback);
-  });
-});
+// Attach plugins to gulp object, simply to have it globally accessible
+gulp.plugin = require('gulp-load-plugins')();
+
+var loadTasks = require('gulp-load')(gulp);
+loadTasks(__dirname);
