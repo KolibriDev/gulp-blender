@@ -1,7 +1,7 @@
 {
   "name": "form5-gulp-blender",
   "description": "Our gulp seed front-end development workflow",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": {
     "name": "Form5",
     "email": "hello@form5.is",
@@ -20,8 +20,8 @@
     "gulp-bump": "~0.1.5",
     "gulp-cached": "0.0.1",
     "gulp-clean": "~0.2.4",
-    "gulp-connect": "~0.4.0",
-    "gulp-csso": "~0.2.4",
+    "gulp-connect": "~1.0.5",
+    "gulp-csso": "~0.2.5",
     "gulp-imagemin": "~0.1.5",
     "gulp-jade": "~0.4.2",
     "gulp-jshint": "~1.4.2",
@@ -29,7 +29,7 @@
     "gulp-load-plugins": "~0.3.0",
     "gulp-notify": "~1.0.0-beta",
     "gulp-ruby-sass": "~0.3.1",
-    "gulp-svgmin": "~0.4.3",
+    "gulp-svgmin": "~0.4.4",
     "gulp-uglify": "~0.2.1",
     "gulp-util": "~2.2.14"
   },
