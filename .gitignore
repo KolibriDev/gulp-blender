@@ -7,3 +7,6 @@ dev/*
 dist/*
 !dist/.gitkeep
 *.sublime-workspace
+bower_components
+src/js/vendor
+src/scss/vendor

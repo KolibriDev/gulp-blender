@@ -1,0 +1,23 @@
+{
+  "name": "form5-gulp-blender",
+  "version": "0.7.0",
+  "homepage": "https://github.com/Form5/gulp-blender",
+  "authors": [
+    "Form5 <hello@form5.is>",
+    "Benedikt D Valdez <benedikt@form5.is>",
+    "Arni Reynir Oskarsson <arni@form5.is>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.0"
+  },
+  "overrides": {
+    "jquery": {
+      "main": [
+        "./dist/jquery.min.js",
+        "./dist/jquery.min.map"
+      ]
+    }
+  }
+}
