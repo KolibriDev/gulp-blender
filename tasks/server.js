@@ -1,8 +1,8 @@
 
 module.exports = function(gulp) {
 
-  gulp.task('server', ['default'], function() {
-    return gulp.start('connect', 'watch');
+  gulp.task('server', ['build-dev'], function() {
+    gulp.start('connect', 'watch');
   });
 
 };

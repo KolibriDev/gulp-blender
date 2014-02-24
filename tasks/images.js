@@ -1,19 +1,25 @@
 
 module.exports = function(gulp) {
 
-  gulp.task('images-dev', function() {
-    return gulp.src('src/img/**/*.{png,gif,jpg,jpeg}')
-      .pipe( gulp.plugin.cached('images-dev') )
-      .pipe( gulp.dest('dev/') );
-  });
+  gulp.task('images', function() {
+    var gutil = gulp.plugin.util,
+        prod  = gutil.env.prod,
+        imgFilter = gulp.plugin.filter('**/*.{png,gif,jpg,jpeg}'),
+        svgFilter = gulp.plugin.filter('**/*.svg');
 
-  gulp.task('images-dist', function() {
-    return gulp.src('src/img/**/*.{png,gif,jpg,jpeg}')
-      .pipe( gulp.plugin.imagemin() )
-      .pipe( gulp.dest('dist/') );
-  });
+    return gulp.src('./src/img/**/*.{png,gif,jpg,jpeg,svg}')
+      .pipe( prod ? gutil.noop() : gulp.plugin.changed('./dev/img/') )
 
-  // Run all images tasks
-  gulp.task('images', ['images-dev', 'images-dist']);
+      .pipe( imgFilter )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.imagemin() )
+      .pipe( imgFilter.restore() )
+
+      .pipe( svgFilter )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.svgmin() )
+      .pipe( svgFilter.restore() )
+
+      .pipe( gulp.dest(prod ? './dist/img/' : './dev/img/') )
+      .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
+  });
 
 };

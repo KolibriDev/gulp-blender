@@ -1,21 +1,13 @@
 
 module.exports = function(gulp) {
 
-  gulp.task('copy-dev', function() {
-    gulp.src('src/img/**/*.ico')
-      .pipe( gulp.dest('dev/img/') );
-    gulp.src('src/fonts/**')
-      .pipe( gulp.dest('dev/fonts/') );
-  });
+  gulp.task('copy', function() {
+    var path = gulp.plugin.util.env.prod ? './dist' : './dev';
 
-  gulp.task('copy-dist', function() {
-    gulp.src('src/img/**/*.ico')
-      .pipe( gulp.dest('dev/img/') );
-    gulp.src('src/fonts/**')
-      .pipe( gulp.dest('dev/fonts/') );
+    gulp.src('./src/img/**/*.ico')
+      .pipe( gulp.dest(path + '/img/') );
+    gulp.src('./src/fonts/**')
+      .pipe( gulp.dest(path + '/fonts/') );
   });
-
-  // Run all copy tasks
-  gulp.task('copy', ['copy-dev', 'copy-dist']);
 
 };
