@@ -6,10 +6,13 @@ module.exports = function(gulp) {
         prod  = gutil.env.prod;
 
     return gulp.src('./src/scss/*.scss')
+      .pipe( gulp.plugin.plumber() )
       .pipe(
         prod ? gutil.noop() : gulp.plugin.changed('./dev/css/', {extension: '.css'})
        )
-      .pipe( gulp.plugin.rubySass({noCache:true}) )
+      .pipe(
+        gulp.plugin.sass({onError: gulp.plugin.notify.onError(function(error) { return error; })})
+       )
       .pipe(
          gulp.plugin.autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1')
        )
