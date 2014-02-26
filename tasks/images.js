@@ -9,6 +9,7 @@ module.exports = function(gulp) {
 
     return gulp.src('./src/img/**/*.{png,gif,jpg,jpeg,svg}')
       .pipe( gulp.plugin.plumber() )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe( prod ? gutil.noop() : gulp.plugin.changed('./dev/img/') )
 
       .pipe( imgFilter )
@@ -20,6 +21,7 @@ module.exports = function(gulp) {
       .pipe( svgFilter.restore() )
 
       .pipe( gulp.dest(prod ? './dist/img/' : './dev/img/') )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
 

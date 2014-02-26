@@ -12,6 +12,7 @@ module.exports = function(gulp) {
        )
       .pipe( gulp.plugin.jade({pretty: !prod}) )
       .pipe( gulp.dest(prod ? './dist/' : './dev/') )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
 

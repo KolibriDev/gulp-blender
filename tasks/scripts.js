@@ -35,10 +35,12 @@ module.exports = function(gulp) {
       .pipe( jsHintReporter )
       .pipe( lintFilter.restore() )
 
+      .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe(
         !prod ? gutil.noop() : gulp.plugin.uglify({preserveComments: 'some'})
        )
       .pipe( gulp.dest(prod ? './dist/js/' : './dev/js/') )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
 
