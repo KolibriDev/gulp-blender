@@ -8,6 +8,8 @@ module.exports = function(gulp) {
       .pipe( gulp.dest(path + '/img/') );
     gulp.src('./src/fonts/**')
       .pipe( gulp.dest(path + '/fonts/') );
+    gulp.src('./src/videos/**')
+      .pipe( gulp.dest(path + '/videos/') );
   });
 
 };
