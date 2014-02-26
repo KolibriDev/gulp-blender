@@ -1,7 +1,7 @@
 {
   "name": "form5-gulp-blender",
   "description": "Our gulp seed front-end development workflow",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": {
     "name": "Form5",
     "email": "hello@form5.is",
@@ -37,7 +37,9 @@
     "gulp-sass": "^0.7.1",
     "gulp-svgmin": "~0.4.4",
     "gulp-uglify": "~0.2.1",
-    "gulp-util": "~2.2.14"
+    "gulp-util": "~2.2.14",
+    "map-stream": "^0.1.0",
+    "node-notifier": "^1.2.1"
   },
   "homepage": "https://github.com/Form5/gulp-blender",
   "keywords": [
