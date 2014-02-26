@@ -1,7 +1,7 @@
 
 module.exports = function(gulp) {
 
-  gulp.task('build-dev', ['clean'], function() {
+  gulp.task('build-dev', ['clean','bower'], function() {
     return gulp.start('scripts', 'styles', 'templates', 'images', 'copy');
   });
 

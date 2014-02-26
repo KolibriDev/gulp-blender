@@ -8,6 +8,7 @@ module.exports = function(gulp) {
         svgFilter = gulp.plugin.filter('**/*.svg');
 
     return gulp.src('./src/img/**/*.{png,gif,jpg,jpeg,svg}')
+      .pipe( gulp.plugin.plumber() )
       .pipe( prod ? gutil.noop() : gulp.plugin.changed('./dev/img/') )
 
       .pipe( imgFilter )

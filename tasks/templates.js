@@ -6,6 +6,7 @@ module.exports = function(gulp) {
         prod  = gutil.env.prod;
 
     return gulp.src('./src/views/*.jade')
+      .pipe( gulp.plugin.plumber() )
       .pipe(
         prod ? gutil.noop() : gulp.plugin.changed('./dev/', {extension: '.html'})
        )

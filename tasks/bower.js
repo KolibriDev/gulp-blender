@@ -11,6 +11,7 @@ module.exports = function(gulp) {
             scssFilter = gulp.plugin.filter('**/*.scss');
 
         return gulp.plugin.bowerFiles()
+          .pipe( gulp.plugin.plumber() )
           .pipe( gulp.plugin.rename({dirname: ''}) )
 
           .pipe( jsFilter )
