@@ -1,24 +1,14 @@
 
 module.exports = function(gulp) {
 
-  gulp.task('bump-patch', function() {
+  gulp.task('bump', function() {
+    var bumpType = 'patch';
+    bumpType = gulp.plugin.util.env.minor ? 'minor' : bumpType;
+    bumpType = gulp.plugin.util.env.major ? 'major' : bumpType;
     gulp.src('./*.json')
-      .pipe(gulp.plugin.bump({type:'patch'}))
-      .pipe(gulp.dest('./'));
+      .pipe( gulp.plugin.plumber() )
+      .pipe( gulp.plugin.bump({type:bumpType}) )
+      .pipe( gulp.dest('./') );
   });
-
-  gulp.task('bump-minor', function() {
-    gulp.src('./*.json')
-      .pipe(gulp.plugin.bump({type:'minor'}))
-      .pipe(gulp.dest('./'));
-  });
-
-  gulp.task('bump-major', function() {
-    gulp.src('./*.json')
-      .pipe(gulp.plugin.bump({type:'major'}))
-      .pipe(gulp.dest('./'));
-  });
-
-  gulp.task('bump', ['bump-patch']);
 
 };
