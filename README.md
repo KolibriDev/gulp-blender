@@ -15,12 +15,13 @@ $ git pull https://github.com/Form5/gulp-blender.git
 $ npm install
 ```
 
-and then to have some fun
+and then to have some fun! here are some of our most used tasks
 
-| Dev. server     | Production build | [Install CreSS](https://github.com/Form5/Cress) into ./src/scss/ | ..any other task    |
-| --------------- | ---------------- | ------------------- | ------------------- |
-| `$ gulp server` | `$ gulp build`   | `$ gulp cress`      | `$ gulp taskName`   |
-|                 |                  | *Warning:* **will overwrite any existing files** | |
+| Dev. server     | Production build | [Install CreSS](https://github.com/Form5/Cress) into ./src/scss/ |
+| --------------- | ---------------- | ------------------- |
+| `$ gulp server` | `$ gulp build --prod` | `$ gulp cress` |
+| | | *Warning:* **will overwrite any existing files** | |
+
 ## Structure
 
 ```
