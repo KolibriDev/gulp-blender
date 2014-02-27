@@ -9,9 +9,6 @@ module.exports = function(gulp) {
       .pipe( gulp.plugin.plumber() )
       .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe(
-        prod ? gutil.noop() : gulp.plugin.changed('./dev/css/', {extension: '.css'})
-       )
-      .pipe(
         gulp.plugin.sass({onError: gulp.plugin.notify.onError(function(error) { return error; })})
        )
       .pipe(
