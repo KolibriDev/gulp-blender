@@ -10,7 +10,13 @@ module.exports = function(gulp) {
 
         return gulp.src('./bower_components/cress/src/**/*')
           .pipe( gulp.plugin.plumber() )
-          .pipe( gulp.dest('./src/scss/') );
+          .pipe( gulp.plugin.size() )
+          .pipe( gulp.dest('./src/scss/') )
+          .on( 'end', function(){
+          return gulp.src('./src/views/shared/_head.jade')
+            .pipe( gulp.plugin.replace('css/main.css','css/cress.css') )
+            .pipe( gulp.dest('./src/views/shared/') );
+        });
       });
 
   });
