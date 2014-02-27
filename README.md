@@ -17,10 +17,10 @@ $ npm install
 
 and then to have some fun
 
-| Dev. server     | Production build | ..any existing task |
-| --------------- | ---------------- | ------------------- |
-| `$ gulp server` | `$ gulp build`   | `$ gulp taskName`   |
-
+| Dev. server     | Production build | [Install CreSS](https://github.com/Form5/Cress) into ./src/scss/ | ..any other task    |
+| --------------- | ---------------- | ------------------- | ------------------- |
+| `$ gulp server` | `$ gulp build`   | `$ gulp cress`      | `$ gulp taskName`   |
+|                 |                  | *Warning:* **will overwrite any existing files** | |
 ## Structure
 
 ```
