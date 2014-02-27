@@ -7,9 +7,6 @@ module.exports = function(gulp) {
 
     return gulp.src('./src/views/*.jade')
       .pipe( gulp.plugin.plumber() )
-      .pipe(
-        prod ? gutil.noop() : gulp.plugin.changed('./dev/', {extension: '.html'})
-       )
       .pipe( gulp.plugin.jade({pretty: !prod}) )
       .pipe( gulp.dest(prod ? './dist/' : './dev/') )
       .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
