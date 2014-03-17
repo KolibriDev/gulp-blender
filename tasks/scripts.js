@@ -6,7 +6,7 @@ module.exports = function(gulp) {
         prod  = gutil.env.prod,
         notifier = require('node-notifier'),
         map = require('map-stream'),
-        lintFilter = gulp.plugin.filter(['!**/vendor/**/*']),
+        lintFilter = gulp.plugin.filter(['!**/vendor/**/*','!**/local-vendor/**/*']),
         jsFilter = gulp.plugin.filter(['**/*.js']),
         jsHintReporter;
 
