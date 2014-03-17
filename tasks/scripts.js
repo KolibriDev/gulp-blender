@@ -19,6 +19,10 @@ module.exports = function(gulp) {
               subtitle: 'Line:' + err.error.line + '/Char:' + err.error.character + ' » ' + err.error.reason,
               message: err.error.evidence
             });
+            gutil.log(gutil.colors.red('JSHint') + gutil.colors.yellow(' failed on file: ' + err.file));
+            gutil.log(gutil.colors.yellow('Line: ' + err.error.line + ' / Character: ' + err.error.character));
+            gutil.log(gutil.colors.yellow('Reason: ' + err.error.reason));
+            gutil.log(gutil.colors.yellow(err.error.evidence));
           }
         });
       }
