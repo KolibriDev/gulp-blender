@@ -4,7 +4,8 @@ module.exports = function(gulp) {
   gulp.task('scripts', function() {
     var gutil = gulp.plugin.util,
         prod  = gutil.env.prod,
-        notifier = require('node-notifier'),
+        Notification = require('node-notifier'),
+        notifier = new Notification(),
         map = require('map-stream'),
         lintFilter = gulp.plugin.filter(['!**/vendor/**/*','!**/local-vendor/**/*']),
         jsFilter = gulp.plugin.filter(['**/*.js']),
