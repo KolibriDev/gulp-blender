@@ -1,4 +1,4 @@
-# gulp-blender v0.8.x [![Dependency Status](https://gemnasium.com/Form5/gulp-blender.png)](https://gemnasium.com/Form5/gulp-blender)
+# gulp-blender v0.9.x [![Dependency Status](https://gemnasium.com/Form5/gulp-blender.png)](https://gemnasium.com/Form5/gulp-blender)
 
 This is our humble attempt at an even more badass customized front-end development workflow (than [grunt-seed](https://github.com/Form5/grunt-seed)) using [gulpjs](http://gulpjs.com) for task automation. This will eventually be a project seed that you can use to build your own projects on.
 
