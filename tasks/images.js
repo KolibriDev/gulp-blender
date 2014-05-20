@@ -13,10 +13,16 @@ module.exports = function(gulp) {
 
       .pipe( imgFilter )
       .pipe( !prod ? gutil.noop() : gulp.plugin.imagemin() )
+      .on('error', gulp.plugin.notify.onError(function(error){
+        return error.message.split('\n').pop();
+      }))
       .pipe( imgFilter.restore() )
 
       .pipe( svgFilter )
       .pipe( !prod ? gutil.noop() : gulp.plugin.svgmin() )
+      .on('error', gulp.plugin.notify.onError(function(error){
+        return error.message.split('\n').pop();
+      }))
       .pipe( svgFilter.restore() )
 
       .pipe( gulp.dest(prod ? './dist/img/' : './dev/img/') )
