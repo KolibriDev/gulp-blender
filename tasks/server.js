@@ -2,7 +2,7 @@
 module.exports = function(gulp) {
   var runningServer = false;
 
-  gulp.task('server', ['build-dev'], function() {
+  gulp.task('server', ['build'], function() {
     runningServer = true;
     gulp.start('connect','watch');
   }).on('stop',function(e){
