@@ -7,7 +7,6 @@ module.exports = function(gulp) {
 
     return gulp.src('./src/scss/*.scss')
       .pipe( gulp.plugin.plumber() )
-      .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe(
         gulp.plugin.sass({onError: gulp.plugin.notify.onError(function(error) { return error; })})
        )
@@ -16,7 +15,6 @@ module.exports = function(gulp) {
        )
       .pipe( !prod ? gutil.noop() : gulp.plugin.csso() )
       .pipe( gulp.dest(prod ? './dist/css/' : './dev/css/') )
-      .pipe( !prod ? gutil.noop() : gulp.plugin.size() )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
 
