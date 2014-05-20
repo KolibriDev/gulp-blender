@@ -1,11 +1,15 @@
 {
   "name": "form5-gulp-blender",
   "description": "Our gulp seed front-end development workflow",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "author": {
     "name": "Form5",
     "email": "hello@form5.is",
     "url": "http://www.form5.is"
+  },
+  "blenderCmd": {
+    "deploy": "./bin/deploy.sh",
+    "require": "./bin/require.sh"
   },
   "bugs": {
     "url": "https://github.com/Form5/gulp-blender/issues"

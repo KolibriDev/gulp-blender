@@ -1,4 +1,4 @@
-# gulp-blender v0.9.x [![Dependency Status](https://gemnasium.com/Form5/gulp-blender.png)](https://gemnasium.com/Form5/gulp-blender)
+# gulp-blender v0.10.x [![Dependency Status](https://gemnasium.com/Form5/gulp-blender.png)](https://gemnasium.com/Form5/gulp-blender)
 
 This is our humble attempt at an even more badass customized front-end development workflow (than [grunt-seed](https://github.com/Form5/grunt-seed)) using [gulpjs](http://gulpjs.com) for task automation. This will eventually be a project seed that you can use to build your own projects on.
 
@@ -21,6 +21,11 @@ and then to have some fun! here are some of our most used tasks
 | --------------- | ---------------- | ------------------- |
 | `$ gulp server` | `$ gulp build --prod` | `$ gulp cress` |
 | | | *Warning:* **will overwrite any existing files** | |
+
+| Production build > deploy via ssh  | Compile RequireJS project and copy to clipboard |
+| --------------- | ---------------- |
+| `$ gulp deploy` | `$ gulp require` |
+| Runs shell script from ./bin/deploy.sh | Runs shell script from ./bin/require.sh |
 
 ## Structure
 
