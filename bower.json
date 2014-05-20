@@ -1,6 +1,6 @@
 {
   "name": "form5-gulp-blender",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "homepage": "https://github.com/Form5/gulp-blender",
   "authors": [
     "Form5 <hello@form5.is>",
@@ -12,11 +12,26 @@
   "dependencies": {
     "jquery": "~2.1.0",
     "cress": "~0.5.4",
-    "normalize-scss": "~3.0.0"
+    "normalize-scss": "~3.0.1",
+    "requirejs": "~2.1.11",
+    "requirejs-domready": "~2.0.1",
+    "modernizr": "~2.8.2",
+    "html5-polyfills": "*"
   },
   "overrides": {
     "cress": {
       "ignore": true
+    },
+    "modernizr": {
+      "main": "./modernizr.js"
+    },
+    "html5-polyfills": {
+      "main": [
+        "./classList.js"
+      ]
+    },
+    "requirejs-domready": {
+      "main": "./domReady.js"
     },
     "jquery": {
       "main": [
