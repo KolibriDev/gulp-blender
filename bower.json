@@ -10,10 +10,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.0",
-    "cress": "~0.5.4",
+    "jquery": "~2.1.1",
+    "cress": "~0.7.3",
     "normalize-scss": "~3.0.1",
-    "requirejs": "~2.1.11",
+    "requirejs": "~2.1.14",
     "requirejs-domready": "~2.0.1",
     "modernizr": "~2.8.2",
     "html5-polyfills": "*"
