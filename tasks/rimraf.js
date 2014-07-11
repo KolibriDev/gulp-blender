@@ -1,11 +1,10 @@
 
 module.exports = function(gulp) {
 
-  gulp.task('clean', function() {
+  gulp.task('rimraf', function() {
     var path = gulp.plugin.util.env.prod ? './dist' : './dev';
-
     return gulp.src(path +'/*', {read: false})
-      .pipe( gulp.plugin.clean() );
+      .pipe( gulp.plugin.rimraf() );
   });
 
 };
