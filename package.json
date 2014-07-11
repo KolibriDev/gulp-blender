@@ -1,22 +1,22 @@
 {
-  "name": "form5-gulp-blender",
-  "description": "Our gulp seed front-end development workflow",
+  "name": "kolibri-gulp-blender",
+  "description": "Our gulp based front-end development workflow",
   "version": "0.10.0",
   "author": {
-    "name": "Form5",
-    "email": "hello@form5.is",
-    "url": "http://www.form5.is"
+    "name": "Kolibri",
+    "email": "hello@kolibri.is",
+    "url": "http://www.kolibri.is"
   },
   "blenderCmd": {
     "deploy": "./bin/deploy.sh",
     "require": "./bin/require.sh"
   },
   "bugs": {
-    "url": "https://github.com/Form5/gulp-blender/issues"
+    "url": "https://github.com/kolibridev/gulp-blender/issues"
   },
   "contributors": [
-    "Benedikt D Valdez <benedikt@form5.is>",
-    "Arni Reynir Oskarsson <arni@form5.is>"
+    "Benedikt D Valdez <benedikt@kolibri.is>",
+    "Ólafur Örn Nielsen <olafur@kolibri.is>"
   ],
   "devDependencies": {
     "bower": "^1.3.5",
@@ -46,7 +46,7 @@
     "node-notifier": "^3.0.3",
     "open": "0.0.5"
   },
-  "homepage": "https://github.com/Form5/gulp-blender",
+  "homepage": "https://github.com/kolibridev/gulp-blender",
   "keywords": [
     "form5",
     "gulp",
@@ -58,7 +58,7 @@
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Form5/gulp-blender.git"
+    "url": "git@github.com:kolibridev/gulp-blender.git"
   },
   "scripts": {
     "test": ""
