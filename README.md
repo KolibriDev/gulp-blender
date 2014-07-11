@@ -1,8 +1,6 @@
-# gulp-blender v0.10.x [![Dependency Status](https://gemnasium.com/Form5/gulp-blender.png)](https://gemnasium.com/Form5/gulp-blender)
+# gulp-blender v0.10.x [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
 
-This is our humble attempt at an even more badass customized front-end development workflow (than [grunt-seed](https://github.com/Form5/grunt-seed)) using [gulpjs](http://gulpjs.com) for task automation. This will eventually be a project seed that you can use to build your own projects on.
-
-*Stay tuned*
+This is our humble attempt at an even more badass customized front-end development workflow using [gulpjs](http://gulpjs.com) for task automation.
 
 ## Getting started
 
@@ -11,13 +9,13 @@ Just some basics to starting your new project
 ```shell
 $ git init your-project-name
 $ cd your-project-name
-$ git pull https://github.com/Form5/gulp-blender.git
+$ git pull https://github.com/gulp-blender/gulp-blender.git
 $ npm install
 ```
 
 and then to have some fun! here are some of our most used tasks
 
-| Dev. server     | Production build | [Install CreSS](https://github.com/Form5/Cress) into ./src/scss/ |
+| Dev. server     | Production build | [Install CreSS](https://github.com/kolibridev/Cress) into ./src/scss/ |
 | --------------- | ---------------- | ------------------- |
 | `$ gulp server` | `$ gulp build --prod` | `$ gulp cress` |
 | | | *Warning:* **will overwrite any existing files** | |
@@ -68,15 +66,9 @@ Still confused? Check out some of the existing tasks!
 
 ## Contributing
 
-We love all contributors! If you wanna join the love, check out our [issues](https://github.com/Form5/gulp-blender/issues) and have at it. If you have an idea of how we could improve **gulp-blender** in a way we may not have thought of yet (a.k.a. an issue on it doesn't already exist, open or closed) than go nuts and [create some issues](https://github.com/Form5/gulp-blender/issues/new) or dive in with a pull request.
+We love all contributors! If you wanna join the love, check out our [issues](https://github.com/kolibridev/gulp-blender/issues) and have at it. If you have an idea of how we could improve **gulp-blender** in a way we may not have thought of yet (a.k.a. an issue on it doesn't already exist, open or closed) than go nuts and [create some issues](https://github.com/kolibridev/gulp-blender/issues/new) or dive in with a pull request.
 
 
 ## Author
 
-Form5 is a small interactive studio based in Reykjavík, Iceland. We design and build websites and apps. To learn more about us, check out [www.Form5.is](http://www.form5.is).
-
-## [Contributors](https://github.com/Form5/gulp-blender/graphs/contributors)
-
-Benedikt D Valdez (@benediktvaldez)
-
-Árni Reynir Óskarsson (@arnireynir)
+Kolibri is a digital product development company based in Reykjavík, Iceland. To learn more about us, check out [www.kolibri.is](http://www.kolibri.is).
