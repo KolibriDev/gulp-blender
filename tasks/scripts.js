@@ -32,7 +32,7 @@ module.exports = function(gulp) {
 
     return gulp.src(['./src/js/**/*.js','./src/js/**/*.map'])
       .pipe( gulp.plugin.plumber() )
-      .pipe( prod || !gulp.waitingForBower ? gutil.noop() : gulp.plugin.changed('./dev/js/') )
+      .pipe( prod ? gutil.noop() : gulp.plugin.changed('./dev/js/') )
       .pipe( !prod ? gutil.noop() : jsFilter )
 
       .pipe( lintFilter )
