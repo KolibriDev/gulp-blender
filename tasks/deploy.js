@@ -1,6 +1,7 @@
+'use strict';
 
 module.exports = function(gulp) {
-  var exec = require('child_process').exec,
+  var spawn = require('child_process').spawn,
       pkg  = require('../package.json');
 
   if (!pkg.hasOwnProperty('blenderCmd')) {
@@ -10,8 +11,9 @@ module.exports = function(gulp) {
 
   gulp.task('deploy', function() {
     if (cmd.hasOwnProperty('deploy') && cmd.deploy !== '') {
-      exec(cmd.deploy, function(error, stdout) {
-        console.log(stdout);
+      var deploy = spawn(cmd.deploy);
+      deploy.stdout.on('data', function(data) {
+        process.stdout.write(data);
       });
     } else {
       console.log('Deployment command is missing! Add blenderCmd.deploy to package.json to use this task!');
