@@ -9,7 +9,7 @@ Just some basics to starting your new project
 ```shell
 $ git init your-project-name
 $ cd your-project-name
-$ git pull https://github.com/gulp-blender/gulp-blender.git
+$ git pull https://github.com/KolibriDev/gulp-blender.git
 $ npm install
 ```
 
