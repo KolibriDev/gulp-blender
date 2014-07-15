@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = function(gulp) {
 
@@ -10,7 +11,7 @@ module.exports = function(gulp) {
 
         return gulp.src('./bower_components/cress/src/**/*')
           .pipe( gulp.plugin.plumber() )
-          .pipe( gulp.dest('./src/scss/') )
+          .pipe( gulp.dest(gulp.cfg.styles.srcDir) )
           .on( 'end', function(){
           return gulp.src('./src/views/shared/_head.jade')
             .pipe( gulp.plugin.replace('css/main.css','css/cress.css') )
@@ -19,5 +20,4 @@ module.exports = function(gulp) {
       });
 
   });
-
 };

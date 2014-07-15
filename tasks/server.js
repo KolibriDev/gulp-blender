@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = function(gulp) {
   var runningServer = false;
@@ -11,5 +12,4 @@ module.exports = function(gulp) {
     runningServer = false;
     require('open')('http://localhost:1337');
   });
-
 };

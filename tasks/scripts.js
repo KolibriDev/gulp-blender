@@ -1,15 +1,18 @@
+'use strict';
 
 module.exports = function(gulp) {
-
   gulp.task('scripts', function() {
     var gutil = gulp.plugin.util,
         prod  = gutil.env.prod,
         Notification = require('node-notifier'),
         notifier = new Notification(),
         map = require('map-stream'),
-        lintFilter = gulp.plugin.filter(['!**/vendor/**/*','!**/local-vendor/**/*']),
-        jsFilter = gulp.plugin.filter(['**/*.js']),
-        jsHintReporter;
+        lintFilter = gulp.plugin.filter(gulp.cfg.scripts.lint.exclude),
+        jsHintReporter,
+        jsDevDir = gulp.cfg.env.development.dir
+                   + gulp.cfg.scripts.subDir,
+        jsProdDir = gulp.cfg.env.production.dir
+                   + gulp.cfg.scripts.subDir;
 
     jsHintReporter = map(function (file, callback) {
       if (!file.jshint.success) {
@@ -30,21 +33,20 @@ module.exports = function(gulp) {
       callback(null, file);
     });
 
-    return gulp.src(['./src/js/**/*.js','./src/js/**/*.map'])
+    return gulp.src(gulp.cfg.scripts.src)
       .pipe( gulp.plugin.plumber() )
-      .pipe( prod ? gutil.noop() : gulp.plugin.changed('./dev/js/') )
-      .pipe( !prod ? gutil.noop() : jsFilter )
+      .pipe( prod ? gutil.noop() : gulp.plugin.changed( jsDevDir ) )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.filter(['**/*.js']) )
 
       .pipe( lintFilter )
-      .pipe( gulp.plugin.jshint('./.jshintrc') )
+      .pipe( gulp.plugin.jshint(gulp.cfg.scripts.lint.config) )
       .pipe( jsHintReporter )
       .pipe( lintFilter.restore() )
 
       .pipe(
         !prod ? gutil.noop() : gulp.plugin.uglify({preserveComments: 'some'})
        )
-      .pipe( gulp.dest(prod ? './dist/js/' : './dev/js/') )
+      .pipe( gulp.dest(prod ? jsProdDir : jsDevDir) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
-
 };

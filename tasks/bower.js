@@ -1,21 +1,21 @@
+'use strict';
 
 module.exports = function(gulp) {
+  var mainBowerFiles = require('main-bower-files');
 
-  gulp.task('bower', function() {
-    var mainBowerFiles = require('main-bower-files');
-
-    var jsFilter = gulp.plugin.filter(['**/*.js','**/*.map']),
-        imgFilter = gulp.plugin.filter('**/*.{png,gif,jpg,jpeg,svg}'),
-        cssFilter = gulp.plugin.filter('**/*.css'),
-        scssFilter = gulp.plugin.filter('**/*.scss');
+  var bowerFiles = function() {
+    var jsFilter = gulp.plugin.filter(gulp.cfg.scripts.src),
+        imgFilter = gulp.plugin.filter(gulp.cfg.images.src),
+        cssFilter = gulp.plugin.filter(gulp.cfg.bower.cssFilter),
+        scssFilter = gulp.plugin.filter(gulp.cfg.bower.scssFilter);
 
     return gulp.src(mainBowerFiles())
       .pipe( jsFilter )
-      .pipe( gulp.dest('./src/js/vendor/') )
+      .pipe( gulp.dest(gulp.cfg.bower.jsDest) )
       .pipe( jsFilter.restore() )
 
       .pipe( imgFilter )
-      .pipe( gulp.dest('./src/img/vendor/') )
+      .pipe( gulp.dest(gulp.cfg.bower.imgDest) )
       .pipe( imgFilter.restore() )
 
       .pipe( cssFilter )
@@ -23,6 +23,7 @@ module.exports = function(gulp) {
       .pipe( cssFilter.restore() )
 
       .pipe( scssFilter )
-      .pipe( gulp.dest('./src/scss/vendor/') );
-  });
+      .pipe( gulp.dest(gulp.cfg.bower.scssDest) );
+  };
+  gulp.task('bower', bowerFiles);
 };

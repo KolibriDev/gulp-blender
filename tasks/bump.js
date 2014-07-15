@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = function(gulp) {
 
@@ -10,5 +11,4 @@ module.exports = function(gulp) {
       .pipe( gulp.plugin.bump({type:bumpType}) )
       .pipe( gulp.dest('./') );
   });
-
 };

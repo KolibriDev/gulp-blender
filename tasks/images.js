@@ -1,15 +1,19 @@
+'use strict';
 
 module.exports = function(gulp) {
-
   gulp.task('images', function() {
     var gutil = gulp.plugin.util,
         prod  = gutil.env.prod,
-        imgFilter = gulp.plugin.filter('**/*.{png,gif,jpg,jpeg}'),
-        svgFilter = gulp.plugin.filter('**/*.svg');
+        imgFilter = gulp.plugin.filter(gulp.cfg.images.imgFilter),
+        svgFilter = gulp.plugin.filter(gulp.cfg.images.svgFilter),
+        imgDevDir = gulp.cfg.env.development.dir
+                   + gulp.cfg.images.subDir,
+        imgProdDir = gulp.cfg.env.production.dir
+                   + gulp.cfg.images.subDir;
 
-    return gulp.src('./src/img/**/*.{png,gif,jpg,jpeg,svg}')
+    return gulp.src(gulp.cfg.images.src)
       .pipe( gulp.plugin.plumber() )
-      .pipe( prod ? gutil.noop() : gulp.plugin.changed('./dev/img/') )
+      .pipe( prod ? gutil.noop() : gulp.plugin.changed(imgDevDir) )
 
       .pipe( imgFilter )
       .pipe( !prod ? gutil.noop() : gulp.plugin.imagemin() )
@@ -25,8 +29,7 @@ module.exports = function(gulp) {
       }))
       .pipe( svgFilter.restore() )
 
-      .pipe( gulp.dest(prod ? './dist/img/' : './dev/img/') )
+      .pipe( gulp.dest(prod ? imgProdDir : imgDevDir) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
-
 };

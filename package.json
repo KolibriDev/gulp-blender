@@ -41,6 +41,7 @@
     "gulp-svgmin": "^0.4.6",
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^2.2.20",
+    "istanbul": "^0.3.0",
     "main-bower-files": "^1.0.0",
     "map-stream": "^0.1.0",
     "node-notifier": "^3.0.6",

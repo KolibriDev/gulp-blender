@@ -4,6 +4,8 @@
   var gulp = require('gulp'),
       path = require('path');
 
+  gulp.cfg = require('../blender.json');
+
   beforeEach(function(done) {
     gulp.plugin = require('gulp-load-plugins')();
     var loadTasks = require('gulp-load')(gulp);

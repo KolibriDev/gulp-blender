@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = function(gulp) {
   var exec = require('child_process').exec,
@@ -17,5 +18,4 @@ module.exports = function(gulp) {
       console.log('r.js command is missing! Add blenderCmd.require to package.json to use this task!');
     }
   });
-
 };

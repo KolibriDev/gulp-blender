@@ -1,0 +1,56 @@
+{
+  "env": {
+    "development": {
+      "dir": "./dist/"
+    },
+    "production": {
+      "dir": "./dev/"
+    }
+  },
+  "connect": {
+    "port": "1337",
+    "livereload": true
+  },
+  "templates": {
+    "src": "./src/views/*.jade"
+  },
+  "scripts": {
+    "src": ["./src/js/**/*.js","./src/js/**/*.map"],
+    "lint": {
+      "config": "./.jshintrc",
+      "exclude": ["!**/vendor/**/*",
+                  "!**/local-vendor/**/*"]
+    },
+    "subDir": "js/"
+  },
+  "images": {
+    "src": "./src/img/**/*.{png,gif,jpg,jpeg,svg}",
+    "imgFilter": "**/*.{png,gif,jpg,jpeg}",
+    "svgFilter": "**/*.svg",
+    "subDir": "img/"
+  },
+  "styles": {
+    "src": "./src/scss/*.scss",
+    "srcDir": "./src/scss/",
+    "subDir": "css/"
+  },
+  "ico": {
+    "src": "./src/img/**/*.ico",
+    "subDir": "img/"
+  },
+  "fonts": {
+    "src": "./src/fonts/**",
+    "subDir": "fonts/"
+  },
+  "videos": {
+    "src": "./src/videos/**",
+    "subDir": "videos/"
+  },
+  "bower": {
+    "cssFilter": "**/*.css",
+    "scssFilter": "**/*.scss",
+    "jsDest": "./src/js/vendor/",
+    "imgDest": "./src/img/vendor/",
+    "scssDest": "./src/scss/vendor/"
+  }
+}
