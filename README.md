@@ -1,4 +1,4 @@
-# gulp-blender v0.20.x [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
+# gulp-blender v0.3 [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
 
 This is our humble attempt at an even more badass customized front-end development workflow using [gulpjs](http://gulpjs.com) for task automation.
 

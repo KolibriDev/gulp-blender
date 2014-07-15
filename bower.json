@@ -1,11 +1,10 @@
 {
-  "name": "form5-gulp-blender",
-  "version": "0.10.0",
-  "homepage": "https://github.com/Form5/gulp-blender",
+  "name": "kolibri-gulp-blender",
+  "version": "0.3",
+  "homepage": "https://github.com/kolibridev/gulp-blender",
   "authors": [
-    "Form5 <hello@form5.is>",
-    "Benedikt D Valdez <benedikt@form5.is>",
-    "Arni Reynir Oskarsson <arni@form5.is>"
+    "Benedikt D Valdez <benedikt@kolibri.is>",
+    "Olafur Nielsen <olafur@kolibri.is>"
   ],
   "license": "MIT",
   "private": true,
