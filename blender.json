@@ -16,6 +16,7 @@
   },
   "scripts": {
     "src": ["./src/js/**/*.js","./src/js/**/*.map"],
+    "jsFilter": "**/*.js",
     "lint": {
       "config": "./.jshintrc",
       "exclude": ["!**/vendor/**/*",
@@ -31,6 +32,8 @@
   },
   "styles": {
     "src": "./src/scss/*.scss",
+    "cssFilter": "**/*.css",
+    "scssFilter": "**/*.scss",
     "srcDir": "./src/scss/",
     "subDir": "css/"
   },
@@ -47,8 +50,6 @@
     "subDir": "videos/"
   },
   "bower": {
-    "cssFilter": "**/*.css",
-    "scssFilter": "**/*.scss",
     "jsDest": "./src/js/vendor/",
     "imgDest": "./src/img/vendor/",
     "scssDest": "./src/scss/vendor/"
