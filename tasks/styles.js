@@ -11,7 +11,10 @@ module.exports = function(gulp) {
         gulp.plugin.sass({onError: gulp.plugin.notify.onError(function(error) { return error; })})
        )
       .pipe(
-         gulp.plugin.autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1')
+         gulp.plugin.autoprefixer({
+          browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
+          cascade: false
+         })
        )
       .pipe( !prod ? gutil.noop() : gulp.plugin.csso() )
       .pipe( gulp.dest(prod ?
