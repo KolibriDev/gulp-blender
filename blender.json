@@ -16,7 +16,7 @@
   },
   "scripts": {
     "src": ["./src/js/**/*.js","./src/js/**/*.map"],
-    "jsFilter": "**/*.js",
+    "jsFilter": ["**/*.js","**/*.map"],
     "lint": {
       "config": "./.jshintrc",
       "exclude": ["!**/vendor/**/*",
