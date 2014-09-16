@@ -1,10 +1,10 @@
 {
   "env": {
     "development": {
-      "dir": "./dist/"
+      "dir": "./dev/"
     },
     "production": {
-      "dir": "./dev/"
+      "dir": "./dist/"
     }
   },
   "connect": {
