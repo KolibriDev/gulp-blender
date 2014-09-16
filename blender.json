@@ -1,4 +1,5 @@
 {
+  "version": "0.3.7",
   "env": {
     "development": {
       "dir": "./dev/"
@@ -15,12 +16,20 @@
     "src": "./src/views/*.jade"
   },
   "scripts": {
-    "src": ["./src/js/**/*.js","./src/js/**/*.map"],
-    "jsFilter": ["**/*.js","**/*.map"],
+    "src": [
+      "./src/js/**/*.js",
+      "./src/js/**/*.map"
+    ],
+    "jsFilter": [
+      "**/*.js",
+      "**/*.map"
+    ],
     "lint": {
       "config": "./.jshintrc",
-      "exclude": ["!**/vendor/**/*",
-                  "!**/local-vendor/**/*"]
+      "exclude": [
+        "!**/vendor/**/*",
+        "!**/local-vendor/**/*"
+      ]
     },
     "subDir": "js/"
   },
