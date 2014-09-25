@@ -1,5 +1,5 @@
 {
-  "version": "0.3.10",
+  "version": "0.3.11",
   "env": {
     "development": {
       "dir": "./dev/"
@@ -17,13 +17,14 @@
     "livereload": true
   },
   "templates": {
-    "src": "./src/views/*.jade"
+    "watchSrc": "./src/views/**/*.jade",
+    "src": [
+      "./src/views/**/*.jade",
+      "!./src/views/**/_*.jade"
+    ]
   },
   "scripts": {
-    "src": [
-      "./src/js/**/*.js",
-      "./src/js/**/*.map"
-    ],
+    "src": "./src/js/**/*.{js,map}",
     "jsFilter": [
       "**/*.js",
       "**/*.map"
@@ -44,6 +45,7 @@
     "subDir": "img/"
   },
   "styles": {
+    "watchSrc": "./src/scss/**/*.scss",
     "src": "./src/scss/*.scss",
     "cssFilter": "**/*.css",
     "scssFilter": "**/*.scss",
