@@ -1,7 +1,7 @@
 {
   "name": "kolibri-gulp-blender",
   "description": "Our gulp based front-end development workflow",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "author": {
     "name": "Kolibri",
     "email": "hello@kolibri.is",
@@ -50,7 +50,7 @@
   },
   "homepage": "https://github.com/kolibridev/gulp-blender",
   "keywords": [
-    "form5",
+    "kolibri",
     "gulp",
     "blender",
     "front-end",
