@@ -17,9 +17,7 @@ module.exports = function(gulp) {
          })
        )
       .pipe( !prod ? gutil.noop() : gulp.plugin.csso() )
-      .pipe( gulp.dest(prod ?
-        gulp.cfg.env.production.dir + gulp.cfg.styles.subDir
-        : gulp.cfg.env.development.dir + gulp.cfg.styles.subDir)
+      .pipe( gulp.dest(gulp.cfg.env.dir + gulp.cfg.styles.subDir)
       )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });

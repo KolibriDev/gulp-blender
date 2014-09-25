@@ -6,14 +6,11 @@ module.exports = function(gulp) {
         prod  = gutil.env.prod,
         imgFilter = gulp.plugin.filter(gulp.cfg.images.imgFilter),
         svgFilter = gulp.plugin.filter(gulp.cfg.images.svgFilter),
-        imgDevDir = gulp.cfg.env.development.dir
-                   + gulp.cfg.images.subDir,
-        imgProdDir = gulp.cfg.env.production.dir
-                   + gulp.cfg.images.subDir;
+        imgDir = gulp.cfg.env.dir + gulp.cfg.images.subDir;
 
     return gulp.src(gulp.cfg.images.src)
       .pipe( gulp.plugin.plumber() )
-      .pipe( prod ? gutil.noop() : gulp.plugin.changed(imgDevDir) )
+      .pipe( prod ? gutil.noop() : gulp.plugin.changed(imgDir) )
 
       .pipe( imgFilter )
       .pipe( !prod ? gutil.noop() : gulp.plugin.imagemin() )
@@ -29,7 +26,7 @@ module.exports = function(gulp) {
       }))
       .pipe( svgFilter.restore() )
 
-      .pipe( gulp.dest(prod ? imgProdDir : imgDevDir) )
+      .pipe( gulp.dest(imgDir) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
 };

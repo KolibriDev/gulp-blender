@@ -9,10 +9,7 @@ module.exports = function(gulp) {
         map = require('map-stream'),
         lintFilter = gulp.plugin.filter(gulp.cfg.scripts.lint.exclude),
         jsHintReporter,
-        jsDevDir = gulp.cfg.env.development.dir
-                   + gulp.cfg.scripts.subDir,
-        jsProdDir = gulp.cfg.env.production.dir
-                   + gulp.cfg.scripts.subDir;
+        jsDir = gulp.cfg.env.dir + gulp.cfg.scripts.subDir;
 
     jsHintReporter = map(function (file, callback) {
       if (!file.jshint.success) {
@@ -35,7 +32,7 @@ module.exports = function(gulp) {
 
     return gulp.src(gulp.cfg.scripts.src)
       .pipe( gulp.plugin.plumber() )
-      .pipe( prod ? gutil.noop() : gulp.plugin.changed( jsDevDir ) )
+      .pipe( prod ? gutil.noop() : gulp.plugin.changed( jsDir ) )
       .pipe( !prod ? gutil.noop() : gulp.plugin.filter(['**/*.js']) )
 
       .pipe( lintFilter )
@@ -46,7 +43,7 @@ module.exports = function(gulp) {
       .pipe(
         !prod ? gutil.noop() : gulp.plugin.uglify({preserveComments: 'some'})
        )
-      .pipe( gulp.dest(prod ? jsProdDir : jsDevDir) )
+      .pipe( gulp.dest( jsDir ) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
 };

@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function(gulp) {
-
   gulp.task('bump', function() {
     var bumpType = 'patch';
     bumpType = gulp.plugin.util.env.minor ? 'minor' : bumpType;

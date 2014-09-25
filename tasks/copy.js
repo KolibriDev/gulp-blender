@@ -1,10 +1,8 @@
 'use strict';
 
 module.exports = function(gulp) {
-
   gulp.task('copy', function() {
-    var path = gulp.plugin.util.env.prod ?
-      gulp.cfg.env.production.dir : gulp.cfg.env.development.dir;
+    var path = gulp.cfg.env.dir;
 
     gulp.src(gulp.cfg.ico.src)
       .pipe( gulp.dest(path + gulp.cfg.ico.subDir) );

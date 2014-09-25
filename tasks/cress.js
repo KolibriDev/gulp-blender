@@ -1,8 +1,7 @@
 'use strict';
 
 module.exports = function(gulp) {
-
-  // Warning! Will overwrite any existing files!
+  // Warning! Will overwrite any existing styles!
   gulp.task('cress', function() {
     var bower = require('bower');
 

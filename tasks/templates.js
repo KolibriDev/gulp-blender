@@ -15,10 +15,7 @@ module.exports = function(gulp) {
       .on('error', gulp.plugin.notify.onError(function(error){
         return error.message.split('\n').pop();
       }))
-      .pipe(
-        gulp.dest( prod ?
-          gulp.cfg.env.production.dir : gulp.cfg.env.development.dir)
-        )
+      .pipe( gulp.dest( gulp.cfg.env.dir) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
 };
