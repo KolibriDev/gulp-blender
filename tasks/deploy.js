@@ -2,14 +2,13 @@
 
 module.exports = function(gulp) {
   var spawn = require('child_process').spawn,
-      pkg  = require('../package.json'),
       Q = require('q');
 
-  if (!pkg.hasOwnProperty('blenderCmd')) {
-    console.error('blenderCmd object is missing from configuration.');
+  if (!gulp.cfg.hasOwnProperty('cmd')) {
+    console.error('cmd object is missing from configuration.');
     return;
   }
-  var cmd = pkg.blenderCmd;
+  var cmd = gulp.cfg.cmd;
 
   gulp.task('deploy', function() {
     var deferred = Q.defer();
@@ -24,7 +23,7 @@ module.exports = function(gulp) {
         return deferred.resolve();
       });
     } else {
-      console.log('Deployment command is missing! Add blenderCmd.deploy to package.json to use this task!');
+      console.log('Deployment command is missing! Add cmd.deploy to blender.json to use this task!');
       return deferred.resolve();
     }
 

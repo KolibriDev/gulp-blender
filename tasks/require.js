@@ -1,21 +1,31 @@
 'use strict';
 
 module.exports = function(gulp) {
-  var exec = require('child_process').exec,
-      pkg  = require('../package.json');
+  var spawn = require('child_process').spawn,
+      Q = require('q');
 
-  if (!pkg.hasOwnProperty('blenderCmd')) {
+  if (!gulp.cfg.hasOwnProperty('cmd')) {
     return;
   }
-  var cmd = pkg.blenderCmd;
+  var cmd = gulp.cfg.cmd;
 
   gulp.task('require', function() {
+    var deferred = Q.defer();
+
     if (cmd.hasOwnProperty('require') && cmd.require !== '') {
-      exec(cmd.require, function(error, stdout) {
-        console.log(stdout);
+      var require = spawn(cmd.require);
+      require.stdout.on('data', function(data) {
+        process.stdout.write(data);
+      });
+
+      require.stdout.on('close', function(){
+        return deferred.resolve();
       });
     } else {
-      console.log('r.js command is missing! Add blenderCmd.require to package.json to use this task!');
+      console.log('RequireJS command is missing! Add cmd.require to blender.json to use this task!');
+      return deferred.resolve();
     }
+
+    return deferred.promise;
   });
 };

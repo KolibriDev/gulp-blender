@@ -1,5 +1,5 @@
 {
-  "version": "0.3.8",
+  "version": "0.3.9",
   "env": {
     "development": {
       "dir": "./dev/"
@@ -7,6 +7,10 @@
     "production": {
       "dir": "./dist/"
     }
+  },
+  "cmd": {
+    "deploy": "./bin/deploy.sh",
+    "require": "./bin/require.sh"
   },
   "connect": {
     "port": "1337",
