@@ -11,13 +11,6 @@ module.exports = function(gulp) {
       .pipe( gulp.plugin.plumber() )
       .pipe( prod ? gutil.noop() : gulp.plugin.changed(imgDir) )
 
-      .pipe( imgFilter )
-      .pipe( !prod ? gutil.noop() : gulp.plugin.imagemin() )
-      .on('error', gulp.plugin.notify.onError(function(error){
-        return error.message.split('\n').pop();
-      }))
-      .pipe( imgFilter.restore() )
-
       .pipe( gulp.dest(imgDir) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
