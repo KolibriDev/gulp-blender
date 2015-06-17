@@ -32,17 +32,16 @@ module.exports = function(gulp) {
 
     return gulp.src(gulp.cfg.scripts.src)
       .pipe( gulp.plugin.plumber() )
-      .pipe( prod ? gutil.noop() : gulp.plugin.changed( jsDir ) )
-      .pipe( !prod ? gutil.noop() : gulp.plugin.filter(['**/*.js']) )
 
       .pipe( lintFilter )
       .pipe( gulp.plugin.jshint(gulp.cfg.scripts.lint.config) )
       .pipe( jsHintReporter )
       .pipe( lintFilter.restore() )
 
-      .pipe(
-        !prod ? gutil.noop() : gulp.plugin.uglify({preserveComments: 'some'})
-       )
+      .pipe( prod ? gutil.noop() : gulp.plugin.changed( jsDir ) )
+      .pipe( prod ? gutil.noop() : gulp.plugin.debug({title:'script:'}) )
+      .pipe( !prod ? gutil.noop() : gulp.plugin.filter(['**/*.js']) )
+
       .pipe( gulp.dest( jsDir ) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
   });
