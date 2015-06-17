@@ -7,6 +7,9 @@ module.exports = function(gulp) {
     gulp.src(gulp.cfg.ico.src)
       .pipe( gulp.dest(path + gulp.cfg.ico.subDir) );
 
+    gulp.src(gulp.cfg.svg.src)
+      .pipe( gulp.dest(path + gulp.cfg.svg.subDir) );
+
     gulp.src(gulp.cfg.fonts.src)
       .pipe( gulp.dest(path + gulp.cfg.fonts.subDir) );
 

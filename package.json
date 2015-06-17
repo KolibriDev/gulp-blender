@@ -1,7 +1,7 @@
 {
   "name": "kolibri-gulp-blender",
   "description": "Our gulp based front-end development workflow",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "author": {
     "name": "Kolibri",
     "email": "hello@kolibri.is",
@@ -35,7 +35,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
     "gulp-sass": "^2.0.1",
-    "gulp-svgmin": "^1.1.2",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "istanbul": "^0.3.15",

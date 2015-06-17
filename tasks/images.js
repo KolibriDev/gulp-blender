@@ -5,7 +5,6 @@ module.exports = function(gulp) {
     var gutil = gulp.plugin.util,
         prod  = gutil.env.prod,
         imgFilter = gulp.plugin.filter(gulp.cfg.images.imgFilter),
-        svgFilter = gulp.plugin.filter(gulp.cfg.images.svgFilter),
         imgDir = gulp.cfg.env.dir + gulp.cfg.images.subDir;
 
     return gulp.src(gulp.cfg.images.src)
@@ -18,13 +17,6 @@ module.exports = function(gulp) {
         return error.message.split('\n').pop();
       }))
       .pipe( imgFilter.restore() )
-
-      .pipe( svgFilter )
-      .pipe( !prod ? gutil.noop() : gulp.plugin.svgmin() )
-      .on('error', gulp.plugin.notify.onError(function(error){
-        return error.message.split('\n').pop();
-      }))
-      .pipe( svgFilter.restore() )
 
       .pipe( gulp.dest(imgDir) )
       .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );

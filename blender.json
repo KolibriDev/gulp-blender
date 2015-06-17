@@ -1,5 +1,5 @@
 {
-  "version": "0.3.13",
+  "version": "0.3.14",
   "env": {
     "development": {
       "dir": "./dev/"
@@ -39,9 +39,12 @@
     "subDir": "js/"
   },
   "images": {
-    "src": "./src/img/**/*.{png,gif,jpg,jpeg,svg}",
+    "src": "./src/img/**/*.{png,gif,jpg,jpeg}",
     "imgFilter": "**/*.{png,gif,jpg,jpeg}",
-    "svgFilter": "**/*.svg",
+    "subDir": "img/"
+  },
+  "svg": {
+    "src": "./src/img/**/*.svg",
     "subDir": "img/"
   },
   "styles": {
