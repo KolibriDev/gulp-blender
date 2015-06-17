@@ -9,19 +9,20 @@ module.exports = function(gulp) {
     return gulp.src(gulp.cfg.styles.src)
       .pipe( gulp.plugin.plumber() )
       .pipe(
-        gulp.plugin.sass({
-          onError: function(error){
-            var filename = error.file.split('src/scss').pop();
-            notifier.notify({
-              title: 'SASS: ' + filename,
-              subtitle: 'Line:' + error.line + '/Char:' + error.column,
-              message: error.message
-            });
-            gulp.plugin.util.beep();
-            gutil.log(gutil.colors.red('SASS') + gutil.colors.yellow(' failed on file: ' + filename));
-            gutil.log(gutil.colors.yellow('Line: ' + error.line + ' / Character: ' + error.column));
-            gutil.log(gutil.colors.yellow('Reason: ' + error.message));
-          }
+        gulp.plugin.sass().on('error', function(error){
+          var arr = error.message.split('\n');
+          var filename = arr[0];
+          arr.shift();
+          var message = arr.join('\n');
+          notifier.notify({
+            title: 'SASS: ' + filename,
+            subtitle: 'Line:' + error.line + '/Char:' + error.column,
+            message: message
+          });
+          gulp.plugin.util.beep();
+          gutil.log(gutil.colors.red('SASS') + gutil.colors.yellow(' failed on file: ' + filename));
+          gutil.log(gutil.colors.yellow('Line: ' + error.line + ' / Character: ' + error.column));
+          gutil.log(gutil.colors.yellow('Reason: ' + message));
         })
        )
       .pipe(
