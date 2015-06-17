@@ -4,8 +4,7 @@ module.exports = function(gulp) {
   gulp.task('scripts', function() {
     var gutil = gulp.plugin.util,
         prod  = gutil.env.prod,
-        Notification = require('node-notifier'),
-        notifier = new Notification(),
+        notifier = require('node-notifier'),
         map = require('map-stream'),
         lintFilter = gulp.plugin.filter(gulp.cfg.scripts.lint.exclude),
         jsHintReporter,
@@ -20,6 +19,7 @@ module.exports = function(gulp) {
               subtitle: 'Line:' + err.error.line + '/Char:' + err.error.character + ' » ' + err.error.reason,
               message: err.error.evidence
             });
+            gulp.plugin.util.beep();
             gutil.log(gutil.colors.red('JSHint') + gutil.colors.yellow(' failed on file: ' + err.file));
             gutil.log(gutil.colors.yellow('Line: ' + err.error.line + ' / Character: ' + err.error.character));
             gutil.log(gutil.colors.yellow('Reason: ' + err.error.reason));

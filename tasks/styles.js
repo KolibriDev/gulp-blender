@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(gulp) {
+  var notifier = require('node-notifier');
   gulp.task('styles', function() {
     var gutil = gulp.plugin.util,
         prod  = gutil.env.prod;
@@ -8,7 +9,20 @@ module.exports = function(gulp) {
     return gulp.src(gulp.cfg.styles.src)
       .pipe( gulp.plugin.plumber() )
       .pipe(
-        gulp.plugin.sass({onError: gulp.plugin.notify.onError(function(error) { return error; })})
+        gulp.plugin.sass({
+          onError: function(error){
+            var filename = error.file.split('src/scss').pop();
+            notifier.notify({
+              title: 'SASS: ' + filename,
+              subtitle: 'Line:' + error.line + '/Char:' + error.column,
+              message: error.message
+            });
+            gulp.plugin.util.beep();
+            gutil.log(gutil.colors.red('SASS') + gutil.colors.yellow(' failed on file: ' + filename));
+            gutil.log(gutil.colors.yellow('Line: ' + error.line + ' / Character: ' + error.column));
+            gutil.log(gutil.colors.yellow('Reason: ' + error.message));
+          }
+        })
        )
       .pipe(
          gulp.plugin.autoprefixer({
