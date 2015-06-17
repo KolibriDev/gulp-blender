@@ -1,4 +1,4 @@
-# gulp-blender v0.3 [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
+# gulp-blender v0.4 [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
 
 This is our humble attempt at an even more badass customized front-end development workflow using [gulpjs](http://gulpjs.com) for task automation.
 
@@ -22,8 +22,26 @@ and then to have some fun! here are some of our most used tasks
 
 | Production build > deploy via ssh  | Compile RequireJS project and copy to clipboard |
 | --------------- | ---------------- |
-| `$ gulp deploy` | `$ gulp require` |
+| `$ gulp run -deploy` | `$ gulp run -require` |
 | Runs shell script from ./bin/deploy.sh | Runs shell script from ./bin/require.sh |
+
+### Create custom commands
+
+Simple add to the `cmd` object in blender.json to create your own custom command
+
+For example
+```json
+{
+  ...
+  "cmd": {
+    "deploy": "./bin/deploy.sh",
+    "require": "./bin/require.sh",
+    "name-of-command": "whatever command you would like to run"
+  },
+  ...
+}
+```
+This will allow you to run `gulp run -name-of-command`. Note that you must prefix the command with a `-` when running it, but not in the blender.json.
 
 ## Structure
 
