@@ -26,7 +26,7 @@ module.exports = function(gulp) {
        )
       .pipe(
          gulp.plugin.autoprefixer({
-          browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
+          browsers: ['ie >= 10', '> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
           cascade: false
          })
        )
