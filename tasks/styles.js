@@ -9,7 +9,9 @@ module.exports = function(gulp) {
     return gulp.src(gulp.cfg.styles.src)
       .pipe( gulp.plugin.plumber() )
       .pipe(
-        gulp.plugin.sass().on('error', function(error){
+        gulp.plugin.sass({
+          outputStyle: (prod ? 'compressed' : 'nested'),
+        }).on('error', function(error){
           var arr = error.message.split('\n');
           var filename = arr[0];
           arr.shift();
