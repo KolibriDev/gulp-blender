@@ -6,7 +6,7 @@ module.exports = function(gulp) {
     var gutil = gulp.plugin.util,
         prod  = gutil.env.prod;
 
-    return gulp.src(gulp.cfg.styles.src)
+    gulp.src(gulp.cfg.styles.src)
       .pipe( gulp.plugin.plumber() )
       .pipe(
         gulp.plugin.sass({
