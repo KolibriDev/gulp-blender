@@ -1,17 +1,16 @@
 'use strict';
 
 module.exports = function(gulp) {
+  var gutil = gulp.plugin.util,
+      prod  = gutil.env.prod,
+      dir = gulp.cfg.env.dir + gulp.cfg.images.subDir;
+
   gulp.task('images', function() {
-    var gutil = gulp.plugin.util,
-        prod  = gutil.env.prod,
-        imgFilter = gulp.plugin.filter(gulp.cfg.images.imgFilter),
-        imgDir = gulp.cfg.env.dir + gulp.cfg.images.subDir;
-
     return gulp.src(gulp.cfg.images.src)
-      .pipe( gulp.plugin.plumber() )
-      .pipe( prod ? gutil.noop() : gulp.plugin.changed(imgDir) )
+      .pipe ( gulp.plugin.plumber({errorHandler: gulp.plugin.notify.onError('<%= error.message %>')}) )
+      .pipe ( prod ? gutil.noop() : gulp.plugin.changed(dir) )
 
-      .pipe( gulp.dest(imgDir) )
-      .pipe( prod ? gutil.noop() : gulp.plugin.connect.reload() );
+      .pipe ( gulp.dest(dir) )
+      .pipe ( prod ? gutil.noop() : gulp.plugin.browserSync.stream() );
   });
 };

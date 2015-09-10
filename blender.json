@@ -1,5 +1,5 @@
 {
-  "version": "0.4.8",
+  "version": "1.0.0-rc.1",
   "env": {
     "development": {
       "dir": "./dev/"
@@ -12,31 +12,53 @@
     "deploy": "./bin/deploy.sh",
     "require": "./bin/require.sh"
   },
-  "connect": {
+  "server": {
     "port": "1337",
-    "livereload": true
+    "uiport": "1338",
+    "ghostMode": {
+      "clicks": "true",
+      "forms": "true",
+      "scroll": "true"
+    }
   },
   "templates": {
     "watchSrc": "./src/views/**/*.jade",
     "src": [
       "./src/views/**/*.jade",
       "!./src/views/**/_*.jade"
-    ]
+    ],
+    "jade": {
+      "pretty": false
+    }
   },
   "scripts": {
-    "src": "./src/js/**/*.{js,map}",
-    "jsFilter": [
-      "**/*.js",
-      "**/*.map"
+    "src": [
+      "./src/js/**/*.js"
     ],
+    "jsFilter": "**/*.js",
     "lint": {
       "config": "./.jshintrc",
-      "filter": [
-        "**/*.js",
-        "!**/vendor/**/*"
+      "src": [
+        "./src/**/*.js",
+        "!./src/**/vendor/**/*"
       ]
     },
     "subDir": "js/"
+  },
+  "manifest": {
+    "filename": "manifest.appcache",
+    "src": [
+      "**/*"
+    ],
+    "exclude": [
+      "manifest.appcache"
+    ],
+    "fallback": [
+      "/ /offline.html"
+    ],
+    "network": [
+      "*"
+    ]
   },
   "images": {
     "src": "./src/img/**/*.{png,gif,jpg,jpeg}",
@@ -53,7 +75,17 @@
     "cssFilter": "**/*.css",
     "scssFilter": "**/*.scss",
     "srcDir": "./src/scss/",
-    "subDir": "css/"
+    "subDir": "css/",
+    "autoprefixer": {
+      "browsers": [
+        "ie >= 10",
+        "> 1%",
+        "last 2 versions",
+        "Firefox ESR",
+        "Opera 12.1"
+      ],
+      "cascade": false
+    }
   },
   "ico": {
     "src": "./src/img/**/*.ico",

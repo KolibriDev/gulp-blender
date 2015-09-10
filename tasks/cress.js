@@ -6,15 +6,15 @@ module.exports = function(gulp) {
     var bower = require('bower');
 
     return bower.commands.install(['cress','normalize-scss'],{save:true})
-      .on('end', function() {
+      .on ( 'end', function() {
 
         return gulp.src('./bower_components/cress/src/**/*')
-          .pipe( gulp.plugin.plumber() )
-          .pipe( gulp.dest(gulp.cfg.styles.srcDir) )
-          .on( 'end', function(){
+          .pipe ( gulp.plugin.plumber() )
+          .pipe ( gulp.dest(gulp.cfg.styles.srcDir) )
+          .on ( 'end', function(){
           return gulp.src('./src/views/shared/_head.jade')
-            .pipe( gulp.plugin.replace('css/main.css','css/cress.css') )
-            .pipe( gulp.dest('./src/views/shared/') );
+            .pipe ( gulp.plugin.replace('css/main.css','css/cress.css') )
+            .pipe ( gulp.dest('./src/views/shared/') );
         });
       });
 
