@@ -5,10 +5,7 @@
     "development": "./dev/",
     "production": "./dist/"
   },
-  "cmd": {
-    "deploy": "./bin/deploy.sh",
-    "require": "./bin/require.sh"
-  },
+  "cmd": {},
   "server": {
     "port": "1337",
     "uiport": "1338",
