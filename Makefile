@@ -13,11 +13,22 @@ endif
 all: npm test build deploy
 
 npm:
-	npm install -g gulp jshint
+	npm install -g gulp jshint jasmine-node
 	npm install --loglevel=error
 
-test:
-	exit 0
+.PHONY: test, test-build
+test: test-build test-project
+
+test-build:
+	jshint ./gulpfile.js --verbose --reporter node_modules/jshint-stylish
+	jshint ./tasks --verbose --reporter node_modules/jshint-stylish
+	jshint ./test-build --verbose --config ./.jshintrc-test --reporter node_modules/jshint-stylish
+	jasmine-node --test-dir test-build --verbose --color
+
+test-project:
+	jshint ./src/js --verbose --reporter node_modules/jshint-stylish
+	jshint ./test --verbose --config ./.jshintrc-test --reporter node_modules/jshint-stylish
+	jasmine-node --test-dir test --verbose --color
 
 build: gulpbuild requirejs
 

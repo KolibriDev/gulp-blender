@@ -7,6 +7,7 @@ module.exports = function(gulp) {
 
       .pipe ( gulp.plugin.debug({title:'jshint:'}) )
       .pipe ( gulp.plugin.jshint(gulp.cfg.scripts.lint.config) )
+      .pipe ( gulp.plugin.jshint.reporter('jshint-stylish') )
       .pipe ( gulp.plugin.jshint.reporter('fail') );
   });
 };

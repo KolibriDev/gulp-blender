@@ -49,6 +49,8 @@ This will allow you to run `gulp run -name-of-command`. Note that you must prefi
 dev -> development build/server
 dist -> production build
 tasks -> all gulp tasks
+test -> tests for the project
+test-blender -> tests for build process
 src
 ├── fonts
 ├── img
