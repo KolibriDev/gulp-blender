@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = function(gulp) {
-  var gutil = gulp.plugin.util,
-      prod  = gutil.env.prod,
-      dir = gulp.cfg.env.dir + gulp.cfg.styles.subDir;
+  var path = require('path');
+  var prod  = gulp.cfg.env === 'production';
+  var dir = path.join(gulp.cfg.envdir, gulp.cfg.styles.subDir);
 
   gulp.task('styles', function() {
     gulp.src(gulp.cfg.styles.src)
@@ -13,6 +13,6 @@ module.exports = function(gulp) {
       .pipe ( gulp.plugin.autoprefixer(gulp.cfg.styles.autoprefixer) )
       .pipe ( gulp.dest(dir) )
 
-      .pipe ( prod ? gutil.noop() : gulp.plugin.browserSync.stream() );
+      .pipe ( gulp.plugin.browserSync.stream() );
   });
 };

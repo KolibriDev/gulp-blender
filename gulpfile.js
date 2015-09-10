@@ -4,8 +4,10 @@ var gulp = require('gulp');
 // Attach plugins and config to gulp object, simply to have it globally accessible
 gulp.plugin = require('gulp-load-plugins')();
 gulp.plugin.browserSync = require('browser-sync').create();
+
 gulp.cfg = require('./blender.json');
-gulp.cfg.env.dir = gulp.plugin.util.env.prod ? gulp.cfg.env.production.dir : gulp.cfg.env.development.dir;
+gulp.cfg.env = gulp.plugin.util.env.env || gulp.cfg.defaultEnv;
+gulp.cfg.envdir = gulp.cfg.envdir.hasOwnProperty(gulp.cfg.env) ? gulp.cfg.envdir[gulp.cfg.env] : gulp.cfg.envdir['development'];
 
 var loadTasks = require('gulp-load')(gulp);
 loadTasks(__dirname);

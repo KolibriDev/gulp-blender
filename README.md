@@ -17,7 +17,7 @@ and then to have some fun! here are some of our most used tasks
 
 | Dev. server     | Production build | [Install CreSS](https://github.com/kolibridev/Cress) into ./src/scss/ |
 | --------------- | ---------------- | ------------------- |
-| `$ gulp server` | `$ gulp build --prod` | `$ gulp cress` |
+| `$ gulp server` | `$ gulp build --env production` | `$ gulp cress` |
 | | | *Warning:* **will overwrite any existing files** | |
 
 | Production build > deploy via ssh  | Compile RequireJS project and copy to clipboard |

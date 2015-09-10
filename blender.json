@@ -1,12 +1,9 @@
 {
   "version": "1.0.0-rc.1",
-  "env": {
-    "development": {
-      "dir": "./dev/"
-    },
-    "production": {
-      "dir": "./dist/"
-    }
+  "defaultEnv": "development",
+  "envdir": {
+    "development": "./dev/",
+    "production": "./dist/"
   },
   "cmd": {
     "deploy": "./bin/deploy.sh",

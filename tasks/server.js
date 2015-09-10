@@ -7,7 +7,7 @@ module.exports = function(gulp) {
     gulp.plugin.browserSync.init({
       port: gulp.cfg.server.port,
       server: {
-        baseDir: gulp.cfg.env.dir,
+        baseDir: gulp.cfg.envdir,
       },
       ui: {
         port: gulp.cfg.server.uiport,

@@ -3,6 +3,6 @@
 module.exports = function(gulp) {
   var del = require('del');
   gulp.task('clean', function() {
-    return del([gulp.cfg.env.dir]);
+    return del([gulp.cfg.envdir]);
   });
 };
