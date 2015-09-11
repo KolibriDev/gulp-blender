@@ -36,7 +36,7 @@ gulpbuild:
 	gulp build --env=production
 
 requirejs:
-	r.js -o build-require.js
+	@./node_modules/.bin/r.js -o build-require.js
 
 deploy:
 	rsync --delete-after --quiet -rlptuPO --chmod=g+w ./dist/* ${WEB_USER}@${TARGET_HOST}:${TARGET_DIR}

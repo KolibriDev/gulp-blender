@@ -39,7 +39,8 @@
     "jshint-stylish": "^2.0.1",
     "main-bower-files": "^2.8.0",
     "node-notifier": "^4.2.3",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "requirejs": "^2.1.20"
   },
   "homepage": "https://github.com/kolibridev/gulp-blender",
   "keywords": [
