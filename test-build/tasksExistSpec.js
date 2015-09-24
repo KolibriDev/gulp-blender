@@ -39,8 +39,11 @@ describe('Task runner', function() {
   it('should have a images task ', function() {
     expect(gulp.hasTask('images')).toBe(true);
   });
-  it('should have a jshint task ', function() {
-    expect(gulp.hasTask('jshint')).toBe(true);
+  it('should have a jshint-scripts task ', function() {
+    expect(gulp.hasTask('jshint-scripts')).toBe(true);
+  });
+  it('should have a jshint-babel task ', function() {
+    expect(gulp.hasTask('jshint-babel')).toBe(true);
   });
   it('should have a run task ', function() {
     expect(gulp.hasTask('run')).toBe(true);
