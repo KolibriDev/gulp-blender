@@ -1,7 +1,7 @@
 {
   "name": "kolibri-gulp-blender",
   "description": "Our gulp based front-end development workflow",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "author": {
     "name": "Kolibri",
     "email": "hello@kolibri.is",
@@ -12,6 +12,7 @@
   },
   "contributors": [
     "Benedikt D Valdez <benedikt@kolibri.is>",
+    "Garpur Dagsson <garpur@kolibri.is>",
     "Ólafur Örn Nielsen <olafur@kolibri.is>"
   ],
   "devDependencies": {
