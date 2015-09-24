@@ -8,12 +8,11 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1",
+    "jquery": "~2.1.4",
     "cress": "~0.7.3",
-    "normalize-scss": "~3.0.1",
-    "requirejs": "~2.1.14",
+    "normalize-scss": "~3.0.3",
+    "requirejs": "~2.1.20",
     "requirejs-domready": "~2.0.1",
-    "modernizr": "~2.8.2",
     "html5-polyfills": "*"
   },
   "overrides": {
@@ -32,10 +31,7 @@
       "main": "./domReady.js"
     },
     "jquery": {
-      "main": [
-        "./dist/jquery.min.js",
-        "./dist/jquery.min.map"
-      ]
+      "main": "./dist/jquery.js"
     }
   }
 }
