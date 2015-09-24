@@ -27,7 +27,7 @@ and then to have some fun! here are some of our most used tasks
 
 ### Create custom commands
 
-Simple add to the `cmd` object in blender.json to create your own custom command
+Simple add to the `cmd` object in gulp-config.json to create your own custom command
 
 For example
 ```json
@@ -41,7 +41,7 @@ For example
   ...
 }
 ```
-This will allow you to run `gulp run -name-of-command`. Note that you must prefix the command with a `-` when running it, but not in the blender.json.
+This will allow you to run `gulp run -name-of-command`. Note that you must prefix the command with a `-` when running it, but not in the gulp-config.json.
 
 ## Structure
 

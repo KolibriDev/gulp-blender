@@ -16,13 +16,13 @@ module.exports = function(gulp) {
     var command = process.argv[3];
     command = command && command.indexOf('-') === 0 ? command.replace('-','') : command;
     if (!command) {
-      gulp.plugin.util.log(gulp.plugin.util.colors.red('No command defined, please write out gulp run -name-of-command and define command in blender.json to use this task!'));
+      gulp.plugin.util.log(gulp.plugin.util.colors.red('No command defined, please write out gulp run -name-of-command and define command in gulp-config.json to use this task!'));
       return deferred.reject();
     }
     var exists = cmd.hasOwnProperty(command) && cmd[command];
     command = exists ? cmd[command] : command;
     if (!exists) {
-      gulp.plugin.util.log(gulp.plugin.util.colors.red('"' + command + '" has not been defined in blender.json!'));
+      gulp.plugin.util.log(gulp.plugin.util.colors.red('"' + command + '" has not been defined in gulp-config.json!'));
       return deferred.reject();
     }
 

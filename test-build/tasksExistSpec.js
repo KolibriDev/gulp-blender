@@ -3,7 +3,7 @@
 var gulp = require('gulp'),
     path = require('path');
 
-gulp.cfg = require('../blender.json');
+gulp.cfg = require('../gulp-config.json');
 gulp.plugin = require('gulp-load-plugins')();
 gulp.cfg.env = gulp.plugin.util.env.env || gulp.cfg.defaultEnv;
 gulp.cfg.envdir = gulp.cfg.envdir.hasOwnProperty(gulp.cfg.env) ? gulp.cfg.envdir[gulp.cfg.env] : gulp.cfg.envdir['development'];
