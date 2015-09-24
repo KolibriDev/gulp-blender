@@ -13,7 +13,6 @@ endif
 all: npm test build deploy
 
 npm:
-	npm install -g gulp jshint jasmine-node
 	npm install --loglevel=error
 
 .PHONY: test, test-build
