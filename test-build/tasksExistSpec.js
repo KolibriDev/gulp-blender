@@ -12,6 +12,9 @@ var loadTasks = require('gulp-load')(gulp);
 loadTasks(path.resolve(__dirname + '/..'));
 
 describe('Task runner', function() {
+  it('should have a babel task ', function() {
+    expect(gulp.hasTask('babel')).toBe(true);
+  });
   it('should have a bower task ', function() {
     expect(gulp.hasTask('bower')).toBe(true);
   });

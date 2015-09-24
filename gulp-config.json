@@ -27,17 +27,32 @@
   },
   "scripts": {
     "src": [
-      "./src/js/**/*.js"
+      "./src/js/**/*.js",
+      "!./src/js/modules/**/*.js"
     ],
     "jsFilter": "**/*.js",
     "lint": {
       "config": "./.jshintrc",
       "src": [
-        "./src/**/*.js",
+        "./src/js/**/*.js",
+        "!./src/js/modules/**/*.js",
         "!./src/**/vendor/**/*"
       ]
     },
     "subDir": "js/"
+  },
+  "babel": {
+    "src": ["./src/js/modules/**/*.js"],
+    "config": {
+      "modules": "amd"
+    },
+    "lint": {
+      "config": "./.jshintrc",
+      "src": [
+        "./src/js/modules/**/*.js"
+      ]
+    },
+    "subDir": "js/modules"
   },
   "manifest": {
     "filename": "manifest.appcache",

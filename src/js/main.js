@@ -5,11 +5,13 @@
       domReady: 'vendor/domReady',
       jquery: 'vendor/jquery.min',
       classList: 'vendor/classList',
-    },
-    shim: {
-      jquery: { exports: '$' },
+
+      // Modules
+      module: 'modules/module',
     }
   });
 
-  require([]);
+  require([
+    'module',
+  ]);
 }).call(this);
