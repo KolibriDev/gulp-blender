@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function(gulp) {
-  gulp.task('default', ['server']);
+  gulp.task('default', ['serve']);
 };

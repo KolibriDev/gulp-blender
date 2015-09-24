@@ -51,8 +51,8 @@ describe('Task runner', function() {
   it('should have a scripts task ', function() {
     expect(gulp.hasTask('scripts')).toBe(true);
   });
-  it('should have a server task ', function() {
-    expect(gulp.hasTask('server')).toBe(true);
+  it('should have a serve task ', function() {
+    expect(gulp.hasTask('serve')).toBe(true);
   });
   it('should have a styles task ', function() {
     expect(gulp.hasTask('styles')).toBe(true);
