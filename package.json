@@ -41,6 +41,7 @@
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "main-bower-files": "^2.8.0",
+    "merge-stream": "^1.0.0",
     "node-notifier": "^4.2.3",
     "q": "^1.4.1",
     "requirejs": "^2.1.20"
