@@ -1,9 +1,23 @@
 {
-	"folders":
-	[
-		{
-			"follow_symlinks": true,
-			"path": "."
-		}
-	]
+  "folders":
+  [
+    {
+      "follow_symlinks": true,
+      "folder_exclude_patterns": [],
+      "path": "."
+    }
+  ],
+  "settings":
+  {
+    "tab_size": 2,
+    "convert_tabs_to_spaces": true,
+    "jshint_options": {
+      "node_path": "node",
+      "lint_on_edit": true,
+      "lint_on_load": true,
+      "lint_on_edit_timeout": 1,
+      "lint_on_save": true,
+      "highlight_selected_regions": false
+    }
+  }
 }
