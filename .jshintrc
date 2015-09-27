@@ -1,4 +1,9 @@
 {
+  "predef": [
+    "define",
+    "require",
+    "requirejs"
+  ],
   "node" : true,
   "jquery" : true,
   "browser" : true,
