@@ -4,6 +4,7 @@
     "require",
     "requirejs"
   ],
+  "jasmine": true,
   "node" : true,
   "jquery" : true,
   "browser" : true,

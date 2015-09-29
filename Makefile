@@ -15,19 +15,16 @@ all: npm test build deploy
 npm:
 	npm install --loglevel=error
 
-.PHONY: test, test-build
-test: test-build test-project
+test: jshint jasmine
 
-test-build:
+jasmine:
+	@./node_modules/.bin/jasmine
+
+jshint:
 	@./node_modules/.bin/jshint ./gulpfile.js --verbose --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jshint ./tasks --verbose --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jshint ./test-build --verbose --config ./.jshintrc-test --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jasmine-node --test-dir test-build --verbose --color
-
-test-project:
-	@./node_modules/.bin/jshint ./src/js --verbose --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jshint ./test --verbose --config ./.jshintrc-test --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jasmine-node --test-dir test --verbose --color
+	@./node_modules/.bin/jshint ./tasks       --verbose --reporter node_modules/jshint-stylish
+	@./node_modules/.bin/jshint ./src/js      --verbose --reporter node_modules/jshint-stylish
+	@./node_modules/.bin/jshint ./spec        --verbose --reporter node_modules/jshint-stylish
 
 build: gulpbuild requirejs
 
