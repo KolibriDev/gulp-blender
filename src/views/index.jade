@@ -1,5 +1,12 @@
 extends shared/_layout
 
+block javascript
+  if env === 'production'
+    script(src='js/project.js')
+    script require(['project']);
+  else
+    script(data-main='js/project' src='js/vendor/require.js')
+
 block content
   h1 Hello Kolibri
   p This is Gulp-blender

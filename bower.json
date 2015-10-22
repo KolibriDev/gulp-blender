@@ -8,30 +8,17 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.4",
     "cress": "~0.7.3",
     "normalize-scss": "~3.0.3",
     "requirejs": "~2.1.20",
-    "requirejs-domready": "~2.0.1",
-    "html5-polyfills": "*"
+    "requirejs-domready": "~2.0.1"
   },
   "overrides": {
     "cress": {
       "ignore": true
     },
-    "modernizr": {
-      "main": "./modernizr.js"
-    },
-    "html5-polyfills": {
-      "main": [
-        "./classList.js"
-      ]
-    },
     "requirejs-domready": {
       "main": "./domReady.js"
-    },
-    "jquery": {
-      "main": "./dist/jquery.js"
     }
   }
 }
