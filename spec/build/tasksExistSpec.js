@@ -47,6 +47,9 @@ describe('Task runner', function() {
   it('should have a jshint-babel task ', function() {
     expect(gulp.hasTask('jshint-babel')).toBe(true);
   });
+  it('should have a manifest task ', function() {
+    expect(gulp.hasTask('manifest')).toBe(true);
+  });
   it('should have a run task ', function() {
     expect(gulp.hasTask('run')).toBe(true);
   });
