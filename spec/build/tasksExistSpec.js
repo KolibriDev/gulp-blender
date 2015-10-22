@@ -14,9 +14,6 @@ var loadTasks = require('gulp-load')(gulp);
 loadTasks(path.resolve(__dirname + '/../..'));
 
 describe('Task runner', function() {
-  it('should have a babel task ', function() {
-    expect(gulp.hasTask('babel')).toBe(true);
-  });
   it('should have a bower task ', function() {
     expect(gulp.hasTask('bower')).toBe(true);
   });
@@ -41,11 +38,8 @@ describe('Task runner', function() {
   it('should have a images task ', function() {
     expect(gulp.hasTask('images')).toBe(true);
   });
-  it('should have a jshint-scripts task ', function() {
-    expect(gulp.hasTask('jshint-scripts')).toBe(true);
-  });
-  it('should have a jshint-babel task ', function() {
-    expect(gulp.hasTask('jshint-babel')).toBe(true);
+  it('should have a jshint task ', function() {
+    expect(gulp.hasTask('jshint')).toBe(true);
   });
   it('should have a manifest task ', function() {
     expect(gulp.hasTask('manifest')).toBe(true);
@@ -55,6 +49,9 @@ describe('Task runner', function() {
   });
   it('should have a scripts task ', function() {
     expect(gulp.hasTask('scripts')).toBe(true);
+  });
+  it('should have a scripts-vendor task ', function() {
+    expect(gulp.hasTask('scripts-vendor')).toBe(true);
   });
   it('should have a serve task ', function() {
     expect(gulp.hasTask('serve')).toBe(true);

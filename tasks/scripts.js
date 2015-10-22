@@ -2,17 +2,31 @@
 
 module.exports = function(gulp) {
   var path = require('path');
-  var noop = gulp.plugin.util.noop;
-  var prod  = gulp.cfg.env === 'production';
   var dir = path.join(gulp.cfg.envdir, gulp.cfg.scripts.subDir);
 
-  gulp.task('scripts', ['jshint-scripts'], function() {
+  gulp.task('scripts', ['jshint','scripts-vendor'], function() {
     return gulp.src(gulp.cfg.scripts.src)
       .pipe ( gulp.plugin.plumber({errorHandler: gulp.plugin.notify.onError('<%= error.message %>')}) )
 
-      .pipe ( prod ? noop() : gulp.plugin.changed(dir) )
-      .pipe ( prod ? noop() : gulp.plugin.debug({title:'--script:'}) )
+      .pipe ( gulp.plugin.debug({title:'--script:'}) )
+
+      .pipe ( gulp.plugin.sourcemaps.init() )
+      .pipe ( gulp.plugin.babel(gulp.cfg.scripts.config) )
+      .pipe ( gulp.plugin.sourcemaps.write())
+
       .pipe ( gulp.dest(dir) )
+
+      .pipe ( gulp.plugin.browserSync.stream() );
+  });
+
+  var vendorDir = path.join(gulp.cfg.envdir, gulp.cfg.scripts.vendor.subDir);
+
+  gulp.task('scripts-vendor', function() {
+    return gulp.src(gulp.cfg.scripts.vendor.src)
+      .pipe ( gulp.plugin.plumber({errorHandler: gulp.plugin.notify.onError('<%= error.message %>')}) )
+
+      .pipe ( gulp.plugin.debug({title:'--script-vendor:'}) )
+      .pipe ( gulp.dest(vendorDir) )
 
       .pipe ( gulp.plugin.browserSync.stream() );
   });
