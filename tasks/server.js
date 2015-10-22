@@ -3,7 +3,7 @@
 module.exports = function(gulp) {
   var modRewrite = require('connect-modrewrite');
 
-  gulp.task('serve', ['build'], function() {
+  gulp.task('serve', ['rebuild'], function() {
 
     // Create rewriteRules for connect middleware
     var rewriteRules = [];
