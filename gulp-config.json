@@ -74,10 +74,6 @@
     "imgFilter": "**/*.{png,gif,jpg,jpeg}",
     "subDir": "img/"
   },
-  "svg": {
-    "src": "./src/img/**/*.svg",
-    "subDir": "img/"
-  },
   "styles": {
     "watchSrc": "./src/scss/**/*.scss",
     "src": "./src/scss/*.scss",
@@ -95,6 +91,10 @@
       ],
       "cascade": false
     }
+  },
+  "svg": {
+    "src": "./src/img/**/*.svg",
+    "subDir": "img/"
   },
   "ico": {
     "src": "./src/img/**/*.ico",
