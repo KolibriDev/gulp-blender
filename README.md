@@ -1,65 +1,57 @@
 # gulp-blender v1.0.0-rc.1 [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
 
-This is our humble attempt at an even more badass customized front-end development workflow using [gulpjs](http://gulpjs.com) for task automation.
+This is our approach to a front-end development workflow using [gulpjs](http://gulpjs.com) for task automation.
 
 ## Getting started
 
-Just some basics to starting your new project
+Just some basics
 
 ```shell
 $ git init your-project-name
 $ cd your-project-name
 $ git pull https://github.com/KolibriDev/gulp-blender.git
-$ npm install
+$ make npm
 ```
 
 and then to have some fun! here are some of our most used tasks
 
 | Dev. server     | Production build | [Install CreSS](https://github.com/kolibridev/Cress) into ./src/scss/ |
 | --------------- | ---------------- | ------------------- |
-| `$ gulp server` | `$ gulp build --env production` | `$ gulp cress` |
-| | | *Warning:* **will overwrite any existing files** | |
+| `$ gulp serve` | `$ make build` | `$ gulp cress` |
+| | | *Warning:* **will overwrite any existing scss files** | |
 
-| Production build > deploy via ssh  | Compile RequireJS project and copy to clipboard |
+| Run tests (details below) | Deploy via rsync |
 | --------------- | ---------------- |
-| `$ gulp run -deploy` | `$ gulp run -require` |
-| Runs shell script from ./bin/deploy.sh | Runs shell script from ./bin/require.sh |
-
-### Create custom commands
-
-Simple add to the `cmd` object in gulp-config.json to create your own custom command
-
-For example
-```json
-{
-  ...
-  "cmd": {
-    "deploy": "./bin/deploy.sh",
-    "require": "./bin/require.sh",
-    "name-of-command": "whatever command you would like to run"
-  },
-  ...
-}
-```
-This will allow you to run `gulp run -name-of-command`. Note that you must prefix the command with a `-` when running it, but not in the gulp-config.json.
+| `$ make test` | `$ make deploy` |
 
 ## Structure
 
 ```
-dev -> development build/server
-dist -> production build
-tasks -> all gulp tasks
-test -> tests for the project
-test-blender -> tests for build process
-src
+Makefile
+api // base for an API if needed
+dev // development build/server (generated content)
+dist // production build (generated content)
+tasks // all gulp tasks
+spec // tests for build and project
+├── build
+│   └── specs for this build
+├── helpers
+│   └── specHelpers
+├── project
+│   └── your specs go here!
+└── support
+    └── jasmine.json
+src // the source files for your project
+├── config
+│   └── project-api.json // pm2 config file to start the API on production
 ├── fonts
 ├── img
 ├── js
-│   ├── main.js
-│   └── vendor
+│   ├── project.js
+│   └── vendor // 3rd party scripts like underscore or jquery
 ├── scss
 │   ├── main.scss
-│   └── vendor
+│   └── vendor // 3rd party styles like normalize
 └── views
     ├── index.jade
     └── shared
@@ -67,7 +59,37 @@ src
         └── layout.jade
 ```
 
-## Creating tasks
+### Makefile
+
+Our `Makefile` always consists of the same four commands, `npm`, `test`, `build` and `deploy`. These are then often broken into seperate commands (if needed), like `make build`.
+
+```Makefile
+build: gulpbuild requirejs
+
+gulpbuild:
+  gulp build --env=production
+
+requirejs:
+  @./node_modules/.bin/r.js -o build-require.js
+```
+
+See `Makefile` for more detail.
+
+### Tests
+
+We run `jshint` on all scripts and use `jasmine` for more extensive tests. All jasmine tests are located in `./specs`, see structure above for detail.
+
+By default there is one `pending` test in the `./spec/project` folder that you should replace with your own tests.
+
+See `Makefile` for more detail.
+
+### API
+
+We have a base for an API that can be used for whatever purpose, some kind of middleware for a third party connection (e.g. mailchimp signup), or as a way to deliver content.
+
+Feel free to ignore this if you have no use for it. Note that `gulp serve` starts the API by default, but you can disable it by giving `api` in `gulp-config.json` a falsy value (or by removing it completely).
+
+### Tasks
 
 Tasks and plugins are automatically loaded thanks to [gulp-load](https://github.com/popomore/gulp-load) and [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins), so all you need to do is create a new file within `./tasks/` like so
 
@@ -80,7 +102,7 @@ module.exports = function(gulp) {
 
 Check out [gulpjs documentation](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulptaskname-deps-fn) for more info on registering gulp tasks;
 
-Plugins are as previously stated automatically loaded and attached to the gulp object, therefore accessible at any time via `gulp.plugin.nameOfPlugin()`
+Gulp plugins are as previously stated automatically loaded and attached to the gulp object, therefore e.g. `gulp-live-server` is accessible at any time via `gulp.plugin.liveServer()`.
 
 Still confused? Check out some of the existing tasks!
 
