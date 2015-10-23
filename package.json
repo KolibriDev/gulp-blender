@@ -15,6 +15,12 @@
     "Garpur Dagsson <garpur@kolibri.is>",
     "Ólafur Örn Nielsen <olafur@kolibri.is>"
   ],
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "q": "^1.4.1"
+  },
   "devDependencies": {
     "bower": "^1.5.3",
     "browser-sync": "^2.9.3",
@@ -29,6 +35,7 @@
     "gulp-filter": "^3.0.1",
     "gulp-jade": "^1.0.1",
     "gulp-jshint": "^1.11.0",
+    "gulp-live-server": "0.0.29",
     "gulp-load": "^0.1.1",
     "gulp-load-plugins": "^1.0.0-rc",
     "gulp-manifest": "0.0.10",
@@ -46,6 +53,7 @@
     "main-bower-files": "^2.8.0",
     "merge-stream": "^1.0.0",
     "node-notifier": "^4.2.3",
+    "proxy-middleware": "^0.14.0",
     "q": "^1.4.1",
     "requirejs": "^2.1.20"
   },

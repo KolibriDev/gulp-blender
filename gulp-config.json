@@ -7,13 +7,25 @@
   },
   "cmd": {},
   "server": {
-    "port": "1337",
-    "uiport": "1338",
+    "port": 1337,
+    "uiport": 1338,
     "ghostMode": {
       "clicks": "true",
       "forms": "true",
       "scroll": "true"
     }
+  },
+  "api": {
+    "src": "./api/**/*",
+    "server": "./api/server.js",
+    "subDir": "api",
+    "port": 1336
+  },
+  "config": {
+    "src": [
+      "./package.json",
+      "./src/config/**/*.json"
+    ]
   },
   "templates": {
     "watchSrc": "./src/views/**/*.jade",
