@@ -19,12 +19,15 @@
     "src": "./api/**/*",
     "server": "./api/server.js",
     "subDir": "api",
-    "port": 1336
+    "port": 1336,
+    "lint": {
+      "config": "./.jshintrc-api",
+      "src": "./api/**/*.js"
+    }
   },
   "config": {
     "src": [
-      "./package.json",
-      "./src/config/**/*.json"
+      "./package.json"
     ]
   },
   "templates": {

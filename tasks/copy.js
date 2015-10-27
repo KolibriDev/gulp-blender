@@ -21,14 +21,10 @@ module.exports = function(gulp) {
       .pipe ( gulp.plugin.debug({title:'--videos:'}) )
       .pipe ( gulp.dest(path.join(gulp.cfg.envdir, gulp.cfg.videos.subDir)) );
 
-    var api = gulp.src(gulp.cfg.api.src)
-      .pipe ( gulp.plugin.debug({title:'--api:'}) )
-      .pipe ( gulp.dest(path.join(gulp.cfg.envdir, gulp.cfg.api.subDir)) );
-
     var config = gulp.src(gulp.cfg.config.src)
       .pipe ( gulp.plugin.debug({title:'--config:'}) )
       .pipe ( gulp.dest(gulp.cfg.envdir) );
 
-    return merge(ico, svg, fonts, videos, api, config);
+    return merge(ico, svg, fonts, videos, config);
   });
 };

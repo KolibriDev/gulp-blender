@@ -14,6 +14,12 @@ var loadTasks = require('gulp-load')(gulp);
 loadTasks(path.resolve(__dirname + '/../..'));
 
 describe('Task runner', function() {
+  it('should have a build-api task ', function() {
+    expect(gulp.hasTask('build-api')).toBe(true);
+  });
+  it('should have a serve-api task ', function() {
+    expect(gulp.hasTask('serve-api')).toBe(true);
+  });
   it('should have a bower task ', function() {
     expect(gulp.hasTask('bower')).toBe(true);
   });
@@ -40,6 +46,9 @@ describe('Task runner', function() {
   });
   it('should have a jshint task ', function() {
     expect(gulp.hasTask('jshint')).toBe(true);
+  });
+  it('should have a jshint-api task ', function() {
+    expect(gulp.hasTask('jshint-api')).toBe(true);
   });
   it('should have a manifest task ', function() {
     expect(gulp.hasTask('manifest')).toBe(true);

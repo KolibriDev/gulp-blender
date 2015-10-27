@@ -5,24 +5,12 @@ module.exports = function(gulp) {
   var url = require('url');
   var proxy = require('proxy-middleware');
 
-  gulp.task('api', function() {
-    var server = gulp.plugin.liveServer(gulp.cfg.api.server, {env: {PORT: gulp.cfg.api.port}});
-    server.start();
-    gulp.plugin.util.log('API server started on port ' + gulp.cfg.api.port);
-
-    gulp.watch([gulp.cfg.api.src], function(file) {
-      server.start.apply(server);
-      server.notify.apply(server, [file]);
-      gulp.plugin.util.log('Restarted API on port ' + gulp.cfg.api.port);
-    });
-  });
-
   gulp.task('serve', ['rebuild'], function() {
 
     var middleware = [];
 
     if (gulp.cfg.api) {
-      gulp.start('api');
+      gulp.start('serve-api');
       // Create proxy for /api to running api
       var proxyOptions = url.parse('http://localhost:' + gulp.cfg.api.port + '/api');
           proxyOptions.route = '/api';

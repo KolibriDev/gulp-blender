@@ -5,6 +5,6 @@ module.exports = function(gulp) {
     gulp.start('build');
   });
   gulp.task('build', function() {
-    return gulp.start('scripts', 'styles', 'templates', 'images', 'copy');
+    return gulp.start('scripts', 'styles', 'templates', 'images', 'copy', 'build-api');
   });
 };
