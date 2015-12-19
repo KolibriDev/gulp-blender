@@ -1,11 +1,20 @@
 'use strict';
 
 module.exports = function(gulp) {
-  gulp.task('watch', ['server'], function() {
-    gulp.watch(gulp.cfg.styles.watchSrc,['styles']);
-    gulp.watch([gulp.cfg.scripts.src,gulp.cfg.scripts.vendor.src],['scripts']);
-    gulp.watch([gulp.cfg.templates.watchSrc,gulp.cfg.svg.src],['templates']);
-    gulp.watch([gulp.cfg.ico.src,gulp.cfg.svg.src,gulp.cfg.fonts.src,gulp.cfg.videos.src],['copy']);
-    gulp.watch(gulp.cfg.images.src,['images']);
+  var _ = require('underscore');
+
+  gulp.task('watch', function() {
+    var staticSources = [];
+    _.each(gulp.cfg.static, function(source){
+      staticSources.push(source.src);
+    });
+
+    gulp.plugin.util.log(`Watching static sources`);
+    gulp.watch( staticSources, ['static'] );
+
+    _.each(gulp.cfg.watch, (item, key) => {
+      gulp.plugin.util.log(`Watching ${key}`);
+      gulp.watch(item.src, item.tasks);
+    });
   });
 };

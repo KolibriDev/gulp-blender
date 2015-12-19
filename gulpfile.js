@@ -5,9 +5,10 @@ var gulp = require('gulp');
 gulp.plugin = require('gulp-load-plugins')();
 gulp.plugin.browserSync = require('browser-sync').create();
 
-gulp.cfg = require('./gulp-config.json');
-gulp.cfg.env = gulp.cfg.envdir.hasOwnProperty(gulp.plugin.util.env.env) ? gulp.plugin.util.env.env : gulp.cfg.defaultEnv;
-gulp.cfg.envdir = gulp.cfg.envdir[gulp.cfg.env];
+var yaml = require('js-yaml');
+var fs   = require('fs');
+
+gulp.cfg = yaml.safeLoad(fs.readFileSync('./config.yml', 'utf8'));
 
 var loadTasks = require('gulp-load')(gulp);
 loadTasks(__dirname);
@@ -22,7 +23,7 @@ process.on('uncaughtException', function (err) {
 
     notify({
       title: err.name + ' in plugin ' + err.plugin,
-      message: err.message,
+      message: err.message
     });
   }
 });

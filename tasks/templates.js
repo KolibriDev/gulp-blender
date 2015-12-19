@@ -4,6 +4,7 @@ module.exports = function(gulp) {
   var options = gulp.cfg.templates.jade;
   options.data = options.data || {};
   options.data.env = gulp.cfg.env;
+  options.data.version = gulp.cfg.version;
   options.data.flags = gulp.plugin.util.env;
 
   gulp.task('templates', function() {

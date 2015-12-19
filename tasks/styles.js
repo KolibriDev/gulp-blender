@@ -6,7 +6,7 @@ module.exports = function(gulp) {
   var prod  = gulp.cfg.env === 'production';
   var dir = path.join(gulp.cfg.envdir, gulp.cfg.styles.subDir);
 
-  gulp.task('styles', function() {
+  gulp.task('styles', () => {
     return gulp.src(gulp.cfg.styles.src)
       .pipe ( gulp.plugin.plumber({errorHandler: gulp.plugin.notify.onError('<%= error.message %>')}) )
 

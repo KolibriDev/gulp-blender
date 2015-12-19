@@ -1,4 +1,5 @@
 {
+  "name": "gulp-blender",
   "version": "1.0.0-rc.4",
   "defaultEnv": "development",
   "envdir": {
@@ -8,30 +9,27 @@
   "cmd": {},
   "server": {
     "port": 1337,
-    "uiport": 1338,
+    "server": {
+      "baseDir": "./dev/"
+    },
+    "ui": {
+      "port": 1338
+    },
     "ghostMode": {
       "clicks": "true",
       "forms": "true",
       "scroll": "true"
-    }
-  },
-  "api": {
-    "src": "./api/**/*",
-    "server": "./api/server.js",
-    "subDir": "api",
-    "port": 1336,
-    "lint": {
-      "config": "./.jshintrc-api",
-      "src": "./api/**/*.js"
-    }
-  },
-  "config": {
-    "src": [
-      "./package.json"
-    ]
+    },
+    "logLevel": "info",
+    "logFileChanges": true,
+    "logConnections": true,
+    "logPrefix": "-server-",
+    "open": false,
+    "reloadDelay": 500,
+    "notify": false,
+    "middleware": []
   },
   "templates": {
-    "watchSrc": "./src/views/**/*.jade",
     "src": [
       "./src/views/**/*.jade",
       "!./src/views/**/_*.jade"
@@ -45,12 +43,8 @@
       "./src/js/**/*.js",
       "!./src/js/vendor/**/*.js"
     ],
-    "jsFilter": "**/*.js",
-    "config": {
-      "modules": "amd"
-    },
     "lint": {
-      "config": "./.jshintrc",
+      "config": "./.eslintrc.json",
       "src": [
         "./src/js/**/*.js",
         "!./src/js/vendor/**/*.js"
@@ -64,33 +58,11 @@
       "subDir": "js/vendor"
     }
   },
-  "manifest": {
-    "filename": "manifest.appcache",
-    "src": [
-      "**/*"
-    ],
-    "exclude": [
-      "manifest.appcache"
-    ],
-    "fallback": [
-      "/ /offline.html"
-    ],
-    "network": [
-      "*"
-    ]
-  },
-  "images": {
-    "src": "./src/img/**/*.{png,gif,jpg,jpeg}",
-    "imgFilter": "**/*.{png,gif,jpg,jpeg}",
-    "subDir": "img/"
-  },
   "styles": {
-    "watchSrc": "./src/scss/**/*.scss",
     "src": "./src/scss/*.scss",
-    "cssFilter": "**/*.css",
-    "scssFilter": "**/*.scss",
-    "srcDir": "./src/scss/",
     "subDir": "css/",
+    "cressDir": "./src/scss/cress",
+    "foundationDir": "./src/scss/foundation",
     "autoprefixer": {
       "browsers": [
         "ie >= 10",
@@ -102,25 +74,58 @@
       "cascade": false
     }
   },
-  "svg": {
-    "src": "./src/img/**/*.svg",
-    "subDir": "img/"
-  },
-  "ico": {
-    "src": "./src/img/**/*.ico",
-    "subDir": "img/"
-  },
-  "fonts": {
-    "src": "./src/fonts/**",
-    "subDir": "fonts/"
-  },
-  "videos": {
-    "src": "./src/videos/**",
-    "subDir": "videos/"
-  },
   "bower": {
-    "jsDest": "./src/js/vendor/",
-    "imgDest": "./src/img/vendor/",
-    "scssDest": "./src/scss/vendor/"
+    "scripts": {
+      "filter": "**/*.js",
+      "dest": "./src/js/vendor/"
+    },
+    "images": {
+      "filter": "**/*.{png,gif,jpg,jpeg}",
+      "dest": "./src/img/vendor/"
+    },
+    "styles": {
+      "filter": ["**/*.scss","**/*.css"],
+      "dest": "./src/scss/vendor/"
+    }
+  },
+  "watch": {
+    "styles": {
+      "src": "./src/scss/**/*.scss",
+      "tasks": ["styles"]
+    },
+    "scripts": {
+      "src": "./src/js/**/*.js",
+      "tasks": ["scripts"]
+    },
+    "templates": {
+      "src": ["./src/views/**/*.jade", "./src/img/**/*.svg"],
+      "tasks": ["templates"]
+    }
+  },
+  "static": {
+    "images": {
+      "src": "./src/img/**/*.{png,gif,jpg,jpeg}",
+      "subDir": "img/"
+    },
+    "rootassets": {
+      "src": "./src/root/**/*",
+      "subDir": "/"
+    },
+    "svg": {
+      "src": "./src/img/**/*.svg",
+      "subDir": "img/"
+    },
+    "ico": {
+      "src": "./src/img/**/*.ico",
+      "subDir": "img/"
+    },
+    "fonts": {
+      "src": "./src/fonts/**",
+      "subDir": "fonts/"
+    },
+    "videos": {
+      "src": "./src/videos/**",
+      "subDir": "videos/"
+    }
   }
 }

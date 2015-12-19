@@ -2,26 +2,22 @@
 
 module.exports = function(gulp) {
   var bowerFiles = require('main-bower-files');
-  var jsFilter = gulp.plugin.filter(gulp.cfg.scripts.jsFilter, {restore: true}),
-      imgFilter = gulp.plugin.filter(gulp.cfg.images.imgFilter, {restore: true}),
-      cssFilter = gulp.plugin.filter(gulp.cfg.styles.cssFilter, {restore: true}),
-      scssFilter = gulp.plugin.filter(gulp.cfg.styles.scssFilter, {restore: true});
+  var scriptsFilter = gulp.plugin.filter(gulp.cfg.bower.scripts.filter, {restore: true});
+  var imagesFilter  = gulp.plugin.filter(gulp.cfg.bower.images.filter,  {restore: true});
+  var stylesFilter  = gulp.plugin.filter(gulp.cfg.bower.styles.filter,  {restore: true});
 
   gulp.task('bower', function() {
     return gulp.src(bowerFiles())
-      .pipe ( jsFilter )
-      .pipe ( gulp.dest(gulp.cfg.bower.jsDest) )
-      .pipe ( jsFilter.restore )
+      .pipe ( scriptsFilter )
+      .pipe ( gulp.dest(gulp.cfg.bower.scripts.dest) )
+      .pipe ( scriptsFilter.restore )
 
-      .pipe ( imgFilter )
+      .pipe ( imagesFilter )
       .pipe ( gulp.dest(gulp.cfg.bower.imgDest) )
-      .pipe ( imgFilter.restore )
+      .pipe ( imagesFilter.restore )
 
-      .pipe ( cssFilter )
+      .pipe ( stylesFilter )
       .pipe ( gulp.plugin.rename({extname: '.scss'}) )
-      .pipe ( cssFilter.restore )
-
-      .pipe ( scssFilter )
-      .pipe ( gulp.dest(gulp.cfg.bower.scssDest) );
+      .pipe ( gulp.dest(gulp.cfg.bower.styles.dest) );
   });
 };
