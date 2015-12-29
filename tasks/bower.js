@@ -13,7 +13,7 @@ module.exports = function(gulp) {
       .pipe ( scriptsFilter.restore )
 
       .pipe ( imagesFilter )
-      .pipe ( gulp.dest(gulp.cfg.bower.imgDest) )
+      .pipe ( gulp.dest(gulp.cfg.bower.images.dest) )
       .pipe ( imagesFilter.restore )
 
       .pipe ( stylesFilter )
