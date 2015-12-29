@@ -2,7 +2,7 @@
 
 module.exports = function(gulp) {
   var path = require('path');
-  var dir = path.join(gulp.cfg.envdir, gulp.cfg.scripts.subDir);
+  var dir = path.join(gulp.cfg.dest, gulp.cfg.scripts.subDir);
 
   gulp.task('scripts', ['lint','scripts-vendor'], function() {
     return gulp.src(gulp.cfg.scripts.src)
@@ -11,7 +11,7 @@ module.exports = function(gulp) {
       .pipe ( gulp.plugin.debug({title:'--script:'}) )
 
       .pipe ( gulp.plugin.sourcemaps.init() )
-      .pipe ( gulp.plugin.babel() )
+        .pipe ( gulp.plugin.babel() )
       .pipe ( gulp.plugin.sourcemaps.write())
 
       .pipe ( gulp.dest(dir) )
@@ -19,7 +19,7 @@ module.exports = function(gulp) {
       .pipe ( gulp.plugin.browserSync.stream() );
   });
 
-  var vendorDir = path.join(gulp.cfg.envdir, gulp.cfg.scripts.vendor.subDir);
+  var vendorDir = path.join(gulp.cfg.dest, gulp.cfg.scripts.vendor.subDir);
 
   gulp.task('scripts-vendor', function() {
     return gulp.src(gulp.cfg.scripts.vendor.src)

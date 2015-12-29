@@ -1,11 +1,7 @@
 {
   "name": "gulp-blender",
   "version": "1.0.0-rc.4",
-  "defaultEnv": "development",
-  "envdir": {
-    "development": "./dev/",
-    "production": "./dist/"
-  },
+  "dest": "./dist/",
   "cmd": {},
   "server": {
     "port": 1337,

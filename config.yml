@@ -2,14 +2,14 @@
 name: "gulp-blender"
 version: "1.0.0-rc.4"
 
-# Environmn
+# Destination for compiled files
 dest: "./dist/"
 
 # Configure gulp server task
 server:
   port: 1337
   server:
-    baseDir: "./dev/"
+    baseDir: "./dist/"
   ui:
     port: 1338
   ghostMode:
@@ -58,6 +58,9 @@ styles:
   src: "./src/scss/*.scss"
   cressDir: "./src/scss/cress"
   foundationDir: "./src/scss/foundation"
+  # https://github.com/sass/node-sass#options
+  sass:
+    outputStyle: 'compressed'
   # https://github.com/postcss/autoprefixer#options
   autoprefixer:
     browsers:

@@ -9,7 +9,7 @@ module.exports = function(gulp) {
     var stream = merge();
 
     _.each(gulp.cfg.static, function(source, key){
-      var dir = path.join(gulp.cfg.envdir, source.subDir);
+      var dir = path.join(gulp.cfg.dest, source.subDir);
 
       var newStream = gulp.src(source.src)
         .pipe ( gulp.plugin.debug({title: '--' + key}) )
