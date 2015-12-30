@@ -27,14 +27,8 @@ describe('Task runner', function() {
   it('should have a clean task ', function() {
     expect(gulp.hasTask('clean')).toBe(true);
   });
-  it('should have a cress task ', function() {
-    expect(gulp.hasTask('cress')).toBe(true);
-  });
   it('should have a default task ', function() {
     expect(gulp.hasTask('default')).toBe(true);
-  });
-  it('should have a foundation task ', function() {
-    expect(gulp.hasTask('foundation')).toBe(true);
   });
   it('should have a init task ', function() {
     expect(gulp.hasTask('init')).toBe(true);

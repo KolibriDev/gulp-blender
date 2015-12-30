@@ -57,8 +57,6 @@
   "styles": {
     "subDir": "/css",
     "src": "./src/scss/*.scss",
-    "cressDir": "./src/scss/cress",
-    "foundationDir": "./src/scss/foundation",
     "sass": {
       "outputStyle": "compressed"
     },
@@ -76,18 +74,42 @@
   "bower": {
     "scripts": {
       "filter": "**/*.js",
-      "dest": "./src/js/vendor/"
+      "dest": "./src/js/vendor"
     },
     "images": {
       "filter": "**/*.{png,gif,jpg,jpeg,svg}",
-      "dest": "./src/img/vendor/"
+      "dest": "./src/img/vendor"
     },
     "styles": {
       "filter": [
         "**/*.scss",
         "**/*.css"
       ],
-      "dest": "./src/scss/vendor/"
+      "dest": "./src/scss/vendor"
+    },
+    "almond": {
+      "src": "almond/almond.js",
+      "dest": "./src/js/vendor"
+    },
+    "jquery": {
+      "src": "jquery/dist/jquery.js",
+      "dest": "./src/js/vendor"
+    },
+    "requirejs": {
+      "src": "requirejs/require.js",
+      "dest": "./src/js/vendor"
+    },
+    "requirejs-domready": {
+      "src": "requirejs-domready/domReady.js",
+      "dest": "./src/js/vendor"
+    },
+    "cress": {
+      "src": "cress/src/**/*",
+      "dest": "./src/scss/cress"
+    },
+    "foundation-sites": {
+      "src": "foundation-sites/scss/**/*",
+      "dest": "./src/scss/foundation"
     }
   },
   "static": {
