@@ -1,20 +1,20 @@
 'use strict';
 
 module.exports = function(gulp) {
-  // Warning! Will overwrite any existing styles!
-  gulp.task('cress', function() {
-    var bower = require('bower');
+  var path = require('path');
+  var bower = require('bower');
 
-    return bower.commands.install(['cress','normalize-scss'],{save:true})
+  gulp.task('cress', function(done) {
+
+    bower.commands.install(['cress','normalize-scss'],{save:false})
       .on ( 'end', function() {
 
-        return gulp.src('./bower_components/cress/src/**/*')
-          .pipe ( gulp.plugin.plumber() )
+        return gulp.src(path.join('bower_components','cress/src/**/*'))
+          .pipe ( gulp.plugin.plumber({errorHandler: gulp.plugin.notify.onError('<%= error.message %>')}) )
           .pipe ( gulp.dest(gulp.cfg.styles.cressDir) )
           .on ( 'end', function(){
-            return gulp.src('./src/views/shared/_head.jade')
-              .pipe ( gulp.plugin.replace('css/main.css','css/cress.css') )
-              .pipe ( gulp.dest('./src/views/shared/') );
+            gulp.plugin.util.log('Successfully installed ' + gulp.plugin.util.colors.blue('CreSS') + ' into ' + gulp.cfg.styles.foundationDir);
+            done();
           });
       });
 
