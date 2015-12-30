@@ -21,10 +21,10 @@ jasmine:
 	@./node_modules/.bin/jasmine
 
 jshint:
-	@./node_modules/.bin/jshint ./gulpfile.js --verbose --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jshint ./tasks       --verbose --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jshint ./src/js      --verbose --reporter node_modules/jshint-stylish
-	@./node_modules/.bin/jshint ./spec        --verbose --reporter node_modules/jshint-stylish
+	@./node_modules/.bin/eslint ./gulpfile.js
+	@./node_modules/.bin/eslint ./tasks
+	@./node_modules/.bin/eslint ./src/js
+	@./node_modules/.bin/eslint ./spec
 
 build: gulpbuild requirejs
 
