@@ -5,10 +5,7 @@ var gulp = require('gulp');
 gulp.plugin = require('gulp-load-plugins')();
 gulp.plugin.browserSync = require('browser-sync').create();
 
-var yaml = require('js-yaml');
-var fs   = require('fs');
-
-gulp.cfg = yaml.safeLoad(fs.readFileSync('./config.yml', 'utf8'));
+gulp.cfg = require('./config.json');
 
 var loadTasks = require('gulp-load')(gulp);
 loadTasks(__dirname);

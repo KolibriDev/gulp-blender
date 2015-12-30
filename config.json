@@ -1,12 +1,13 @@
 {
-  "name": "gulp-blender",
-  "version": "1.0.0-rc.4",
+  "name": "project",
+  "version": "0.0.1",
+
   "dest": "./dist/",
-  "cmd": {},
+
   "server": {
     "port": 1337,
     "server": {
-      "baseDir": "./dev/"
+      "baseDir": "./dist/"
     },
     "ui": {
       "port": 1338
@@ -25,7 +26,9 @@
     "notify": false,
     "middleware": []
   },
+
   "templates": {
+    "subDir": "/",
     "src": [
       "./src/views/**/*.jade",
       "!./src/views/**/_*.jade"
@@ -34,7 +37,9 @@
       "pretty": false
     }
   },
+
   "scripts": {
+    "subDir": "/js",
     "src": [
       "./src/js/**/*.js",
       "!./src/js/vendor/**/*.js"
@@ -46,19 +51,26 @@
         "!./src/js/vendor/**/*.js"
       ]
     },
-    "subDir": "js",
+
     "vendor": {
+      "subDir": "/js/vendor",
       "src": [
         "./src/js/vendor/**/*.js"
-      ],
-      "subDir": "js/vendor"
+      ]
     }
   },
+
   "styles": {
+    "subDir": "/css",
     "src": "./src/scss/*.scss",
-    "subDir": "css/",
+
     "cressDir": "./src/scss/cress",
     "foundationDir": "./src/scss/foundation",
+
+    "sass": {
+      "outputStyle": "compressed"
+    },
+
     "autoprefixer": {
       "browsers": [
         "ie >= 10",
@@ -70,20 +82,44 @@
       "cascade": false
     }
   },
+
   "bower": {
     "scripts": {
       "filter": "**/*.js",
       "dest": "./src/js/vendor/"
     },
     "images": {
-      "filter": "**/*.{png,gif,jpg,jpeg}",
+      "filter": "**/*.{png,gif,jpg,jpeg,svg}",
       "dest": "./src/img/vendor/"
     },
     "styles": {
-      "filter": ["**/*.scss","**/*.css"],
+      "filter": [
+        "**/*.scss",
+        "**/*.css"
+      ],
       "dest": "./src/scss/vendor/"
     }
   },
+
+  "static": {
+    "images": {
+      "src": "./src/img/**/*.{png,gif,jpg,jpeg,ico,svg}",
+      "subDir": "img/"
+    },
+    "rootassets": {
+      "src": "./src/root/**/*",
+      "subDir": "/"
+    },
+    "fonts": {
+      "src": "./src/fonts/**/*",
+      "subDir": "fonts/"
+    },
+    "videos": {
+      "src": "./src/videos/**/*",
+      "subDir": "videos/"
+    }
+  },
+
   "watch": {
     "styles": {
       "src": "./src/scss/**/*.scss",
@@ -96,32 +132,6 @@
     "templates": {
       "src": ["./src/views/**/*.jade", "./src/img/**/*.svg"],
       "tasks": ["templates"]
-    }
-  },
-  "static": {
-    "images": {
-      "src": "./src/img/**/*.{png,gif,jpg,jpeg}",
-      "subDir": "img/"
-    },
-    "rootassets": {
-      "src": "./src/root/**/*",
-      "subDir": "/"
-    },
-    "svg": {
-      "src": "./src/img/**/*.svg",
-      "subDir": "img/"
-    },
-    "ico": {
-      "src": "./src/img/**/*.ico",
-      "subDir": "img/"
-    },
-    "fonts": {
-      "src": "./src/fonts/**",
-      "subDir": "fonts/"
-    },
-    "videos": {
-      "src": "./src/videos/**",
-      "subDir": "videos/"
     }
   }
 }
