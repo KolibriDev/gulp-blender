@@ -1,4 +1,4 @@
-# gulp-blender v1.0.0-rc [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
+# gulp-blender v1.0.0 [![Dependency Status](https://gemnasium.com/kolibridev/gulp-blender.png)](https://gemnasium.com/kolibridev/gulp-blender)
 
 This is our approach to a front-end development workflow using [gulpjs](http://gulpjs.com) for task automation.
 
