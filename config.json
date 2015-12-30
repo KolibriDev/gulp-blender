@@ -1,9 +1,7 @@
 {
   "name": "project",
-  "version": "0.0.1",
-
+  "version": "0.0.0",
   "dest": "./dist/",
-
   "server": {
     "port": 1337,
     "server": {
@@ -26,7 +24,6 @@
     "notify": false,
     "middleware": []
   },
-
   "templates": {
     "subDir": "/",
     "src": [
@@ -37,7 +34,6 @@
       "pretty": false
     }
   },
-
   "scripts": {
     "subDir": "/js",
     "src": [
@@ -51,7 +47,6 @@
         "!./src/js/vendor/**/*.js"
       ]
     },
-
     "vendor": {
       "subDir": "/js/vendor",
       "src": [
@@ -59,18 +54,14 @@
       ]
     }
   },
-
   "styles": {
     "subDir": "/css",
     "src": "./src/scss/*.scss",
-
     "cressDir": "./src/scss/cress",
     "foundationDir": "./src/scss/foundation",
-
     "sass": {
       "outputStyle": "compressed"
     },
-
     "autoprefixer": {
       "browsers": [
         "ie >= 10",
@@ -82,7 +73,6 @@
       "cascade": false
     }
   },
-
   "bower": {
     "scripts": {
       "filter": "**/*.js",
@@ -100,7 +90,6 @@
       "dest": "./src/scss/vendor/"
     }
   },
-
   "static": {
     "images": {
       "src": "./src/img/**/*.{png,gif,jpg,jpeg,ico,svg}",
@@ -119,19 +108,27 @@
       "subDir": "videos/"
     }
   },
-
   "watch": {
     "styles": {
       "src": "./src/scss/**/*.scss",
-      "tasks": ["styles"]
+      "tasks": [
+        "styles"
+      ]
     },
     "scripts": {
       "src": "./src/js/**/*.js",
-      "tasks": ["scripts"]
+      "tasks": [
+        "scripts"
+      ]
     },
     "templates": {
-      "src": ["./src/views/**/*.jade", "./src/img/**/*.svg"],
-      "tasks": ["templates"]
+      "src": [
+        "./src/views/**/*.jade",
+        "./src/img/**/*.svg"
+      ],
+      "tasks": [
+        "templates"
+      ]
     }
   }
 }
