@@ -36,7 +36,7 @@ module.exports = function(gulp) {
           name: 'name',
           type: 'input',
           message: 'Project title',
-          default: process.cwd().split('/').pop()
+          default: gulp.cfg.name || process.cwd().split('/').pop()
         },
         {
           name: 'scripts',
