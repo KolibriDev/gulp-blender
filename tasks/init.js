@@ -73,7 +73,7 @@ module.exports = function(gulp) {
           }));
 
           if (response.styles) {
-            _.each(response.scripts, (style) => {
+            _.each(response.styles, (style) => {
               style = style === 'Foundation for sites' ? 'foundation-sites' : style;
               promises.push(new Promise((resolve) => {
                 bowerInstall(style.toString().toLowerCase(), resolve);

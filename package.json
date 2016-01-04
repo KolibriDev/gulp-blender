@@ -1,7 +1,7 @@
 {
   "name": "kolibri-gulp-blender",
   "description": "Our gulp based front-end development workflow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Kolibri",
     "email": "hello@kolibri.is",
