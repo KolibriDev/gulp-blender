@@ -56,7 +56,10 @@
   },
   "styles": {
     "subDir": "/css",
-    "src": "./src/scss/*.scss",
+    "src": [
+      "./src/scss/**/*.scss",
+      "!./src/scss/**/_*.scss"
+    ],
     "sass": {
       "outputStyle": "compressed"
     },
