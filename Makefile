@@ -36,4 +36,3 @@ requirejs:
 
 deploy:
 	rsync --delete-after --quiet -rlptuPO --chmod=g+w ./dist/* ${WEB_USER}@${TARGET_HOST}:${TARGET_DIR}
-	ssh ${WEB_USER}@${TARGET_HOST} 'cd ${TARGET_DIR}/api && npm install --production && pm2 startOrRestart project-api.json'
