@@ -1,7 +1,7 @@
 {
   "name": "kolibri-gulp-blender",
   "description": "Our gulp based front-end development workflow",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": {
     "name": "Kolibri",
     "email": "hello@kolibri.is",
@@ -69,7 +69,7 @@
     "url": "git@github.com:kolibridev/gulp-blender.git"
   },
   "scripts": {
-    "start": "./node_modules/.bin/supervisor -w tasks -x gulp serve",
+    "start": "./node_modules/.bin/supervisor -w gulpfile.js,tasks,config.json,package.json -e node,js,json -x gulp serve",
     "test": "make test"
   }
 }
