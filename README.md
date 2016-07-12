@@ -1,5 +1,7 @@
 # gulp-blender v1.0.0 [![Dependency Status](https://gemnasium.com/KolibriDev/gulp-blender.png)](https://gemnasium.com/KolibriDev/gulp-blender)
 
+***Deprecated in favour of [gulp-tasks](https://github.com/KolibriDev/gulp-tasks)***
+
 This is our approach to a front-end development workflow using [gulpjs](http://gulpjs.com) for task automation.
 
 ## Getting started
